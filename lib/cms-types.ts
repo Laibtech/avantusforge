@@ -6,6 +6,7 @@ export type SectionType =
   | "services_grid"
   | "portfolio_showcase"
   | "team_grid"
+  | "team"
   | "testimonials"
   | "faq_accordion"
   | "statistics"

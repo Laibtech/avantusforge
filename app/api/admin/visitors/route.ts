@@ -1,48 +1,129 @@
 import { NextResponse } from "next/server";
 import { getCurrentAdminSession } from "@/lib/auth";
+import {
+  getLiveTrackingMetrics,
+  getSessionTimeline,
+  cleanupOldVisitorRecords,
+  generateVisitorsCsv,
+} from "@/lib/tracking-db";
 import { getDbPool } from "@/lib/db";
-import type { RowDataPacket } from "mysql2/promise";
 
-export async function GET() {
+export async function GET(req: Request) {
+  const session = await getCurrentAdminSession();
+  if (!session) {
+    return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
+  }
+
+  const { searchParams } = new URL(req.url);
+  const sessionId = searchParams.get("session_id");
+  const exportFormat = searchParams.get("export");
+  const countryFilter = searchParams.get("country") || undefined;
+  const sourceFilter = searchParams.get("source") || undefined;
+
+  // Strict role check for raw IP access
+  const isSuperAdmin = session.user.role === "super_admin";
+  const includeRawIp = isSuperAdmin && searchParams.get("include_raw_ip") === "1";
+
+  // 1. Single Session Activity Timeline
+  if (sessionId) {
+    try {
+      const data = await getSessionTimeline(sessionId);
+      if (!data.session) {
+        return NextResponse.json({ success: false, message: "Session not found" }, { status: 404 });
+      }
+
+      // Strip raw IP if not authorized
+      if (!includeRawIp && data.session) {
+        delete (data.session as any).ip_address;
+      }
+
+      return NextResponse.json({
+        success: true,
+        session: data.session,
+        timeline: data.timeline,
+      });
+    } catch (err: any) {
+      return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+    }
+  }
+
+  // 2. CSV Export
+  if (exportFormat === "csv") {
+    try {
+      const metrics = await getLiveTrackingMetrics({
+        countryFilter,
+        sourceFilter,
+        includeRawIp,
+      });
+
+      const csvContent = generateVisitorsCsv(metrics.activeSessions, includeRawIp);
+
+      return new NextResponse(csvContent, {
+        status: 200,
+        headers: {
+          "Content-Type": "text/csv; charset=utf-8",
+          "Content-Disposition": `attachment; filename="avantusforge-visitors-${new Date().toISOString().slice(0, 10)}.csv"`,
+        },
+      });
+    } catch (err: any) {
+      return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+    }
+  }
+
+  // 3. Full Real-Time Telemetry Dashboard Payload
+  try {
+    const data = await getLiveTrackingMetrics({
+      countryFilter,
+      sourceFilter,
+      includeRawIp,
+    });
+
+    return NextResponse.json({
+      success: true,
+      currentUserRole: session.user.role,
+      canViewRawIp: isSuperAdmin,
+      ...data,
+    });
+  } catch (err: any) {
+    console.error("[Visitors API] Error loading telemetry:", err);
+    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  }
+}
+
+/**
+ * Retention Cleanup & Policy execution
+ */
+export async function POST(req: Request) {
   const session = await getCurrentAdminSession();
   if (!session) {
     return NextResponse.json({ success: false, message: "Unauthorized" }, { status: 401 });
   }
 
   try {
-    const p = getDbPool();
+    const body = await req.json().catch(() => ({}));
+    const retentionDays = Math.max(1, Math.min(Number(body.retentionDays) || 30, 365));
 
-    // 1. Active sessions in the last 30 minutes
-    const [activeSessions] = await p.query<RowDataPacket[]>(
-      `SELECT id, landing_page, referrer, device_type, country, total_pageviews, duration_seconds, started_at, last_seen_at,
-              TIMESTAMPDIFF(SECOND, last_seen_at, NOW()) AS seconds_ago
-       FROM visitor_sessions
-       WHERE last_seen_at >= DATE_SUB(NOW(), INTERVAL 30 MINUTE)
-       ORDER BY last_seen_at DESC
-       LIMIT 50`
-    );
+    const result = await cleanupOldVisitorRecords(retentionDays);
 
-    // 2. Real-time stream of latest pageviews
-    const [recentPageviews] = await p.query<RowDataPacket[]>(
-      `SELECT id, session_id, path, referrer, device_type, browser, os, country, city, duration_seconds, created_at,
-              TIMESTAMPDIFF(SECOND, created_at, NOW()) AS seconds_ago
-       FROM visitor_pageviews
-       ORDER BY id DESC
-       LIMIT 40`
-    );
-
-    // 3. Current active count (last 5 minutes)
-    const [liveCount] = await p.query<RowDataPacket[]>(
-      `SELECT COUNT(DISTINCT id) AS active_now 
-       FROM visitor_sessions 
-       WHERE last_seen_at >= DATE_SUB(NOW(), INTERVAL 5 MINUTE)`
-    );
+    // Audit log
+    try {
+      const p = getDbPool();
+      await p.query(
+        `INSERT INTO cms_audit_logs (action, details, actor) VALUES (?, ?, ?)`,
+        [
+          "VISITOR_RETENTION_CLEANUP",
+          `Purged records older than ${retentionDays} days. Sessions removed: ${result.deletedSessions}, Pageviews removed: ${result.deletedPageviews}`,
+          session.user.full_name || session.user.username,
+        ]
+      );
+    } catch {
+      // non-blocking
+    }
 
     return NextResponse.json({
       success: true,
-      activeNow: liveCount[0]?.active_now || 0,
-      sessions: activeSessions,
-      recentPageviews,
+      message: `Cleaned up records older than ${retentionDays} days.`,
+      ...result,
     });
   } catch (err: any) {
     return NextResponse.json({ success: false, message: err.message }, { status: 500 });

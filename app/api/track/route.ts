@@ -1,81 +1,82 @@
 import { NextResponse } from "next/server";
 import crypto from "crypto";
-import { getDbPool } from "@/lib/db";
-
-function parseDevice(ua: string): { device: string; browser: string; os: string } {
-  const uaLower = ua.toLowerCase();
-
-  // Device
-  let device = "desktop";
-  if (/mobile|android|iphone|ipod/i.test(uaLower)) {
-    device = "mobile";
-  } else if (/ipad|tablet/i.test(uaLower)) {
-    device = "tablet";
-  }
-
-  // Browser
-  let browser = "Other";
-  if (uaLower.includes("chrome") && !uaLower.includes("edg")) browser = "Chrome";
-  else if (uaLower.includes("safari") && !uaLower.includes("chrome")) browser = "Safari";
-  else if (uaLower.includes("firefox")) browser = "Firefox";
-  else if (uaLower.includes("edg")) browser = "Edge";
-
-  // OS
-  let os = "Other";
-  if (uaLower.includes("windows")) os = "Windows";
-  else if (uaLower.includes("macintosh") || uaLower.includes("mac os")) os = "macOS";
-  else if (uaLower.includes("linux")) os = "Linux";
-  else if (uaLower.includes("android")) os = "Android";
-  else if (uaLower.includes("iphone") || uaLower.includes("ipad")) os = "iOS";
-
-  return { device, browser, os };
-}
+import {
+  extractClientIp,
+  maskIp,
+  resolveLocation,
+  categorizeReferrer,
+  parseUserAgent,
+} from "@/lib/geolocation";
+import { recordPageView, recordHeartbeat } from "@/lib/tracking-db";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    const { path = "/", referrer = "", session_id = "" } = body;
+    const body = await req.json().catch(() => ({}));
+    const {
+      type = "pageview",
+      path = "/",
+      previous_path = "",
+      referrer = "Direct",
+      session_id = "",
+      is_returning = false,
+      duration = 25,
+    } = body;
 
-    // Do not track admin routes to avoid skewing public analytics
-    if (path.startsWith("/admin") || path.startsWith("/api")) {
+    // Do not track internal admin panel or API calls
+    if (
+      typeof path === "string" &&
+      (path.startsWith("/admin") || path.startsWith("/api") || path.startsWith("/_next"))
+    ) {
       return NextResponse.json({ success: true, ignored: true });
     }
 
-    const ua = req.headers.get("user-agent") || "";
-    const { device, browser, os } = parseDevice(ua);
-
-    // Approximate IP hash for privacy
-    const rawIp = req.headers.get("x-forwarded-for")?.split(",")[0] || "127.0.0.1";
+    const rawIp = extractClientIp(req.headers);
+    const maskedIp = maskIp(rawIp);
     const ipHash = crypto.createHash("sha256").update(rawIp).digest("hex").slice(0, 16);
+    const sessionId = session_id || `sess_${ipHash}_${Date.now()}`;
 
-    const sessionId = session_id || `sess_${ipHash}_${new Date().toISOString().slice(0, 10)}`;
+    // Handle periodic heartbeat / dwell time tracking
+    if (type === "heartbeat") {
+      await recordHeartbeat({
+        sessionId,
+        path: String(path).slice(0, 255),
+        durationSeconds: Math.min(Math.max(Number(duration) || 25, 1), 300),
+      });
 
-    try {
-      const p = getDbPool();
-
-      // Upsert visitor_sessions
-      await p.query(
-        `INSERT INTO visitor_sessions (id, landing_page, referrer, device_type, country, total_pageviews, last_seen_at)
-         VALUES (?, ?, ?, ?, 'United Kingdom', 1, NOW())
-         ON DUPLICATE KEY UPDATE 
-            total_pageviews = total_pageviews + 1,
-            last_seen_at = NOW()`,
-        [sessionId, path, referrer || "Direct", device]
-      );
-
-      // Insert visitor_pageview event
-      await p.query(
-        `INSERT INTO visitor_pageviews (session_id, path, referrer, user_agent, device_type, browser, os, country, ip_hash)
-         VALUES (?, ?, ?, ?, ?, ?, ?, 'United Kingdom', ?)`,
-        [sessionId, path, referrer || "Direct", ua.slice(0, 255), device, browser, os, ipHash]
-      );
-    } catch (dbErr: any) {
-      // Graceful fallback if database is busy
-      console.warn("[Analytics Tracker] DB write skipped:", dbErr.message);
+      return NextResponse.json({ success: true, type: "heartbeat" });
     }
 
-    return NextResponse.json({ success: true });
-  } catch {
-    return NextResponse.json({ success: false }, { status: 400 });
+    // Handle full pageview event
+    const ua = req.headers.get("user-agent") || "";
+    const { device, browser, os } = parseUserAgent(ua);
+    const geo = await resolveLocation(rawIp, req.headers);
+    const { source: referrerSource } = categorizeReferrer(referrer, path);
+
+    await recordPageView({
+      sessionId,
+      rawIp,
+      maskedIp,
+      path: String(path).slice(0, 255),
+      previousPath: previous_path ? String(previous_path).slice(0, 255) : undefined,
+      referrer: String(referrer).slice(0, 500) || "Direct",
+      referrerSource,
+      device,
+      browser,
+      os,
+      geo,
+      isReturning: Boolean(is_returning),
+    });
+
+    return NextResponse.json({
+      success: true,
+      sessionId,
+      maskedIp,
+      country: geo.country,
+      flag: geo.flag,
+      city: geo.city,
+    });
+  } catch (err: any) {
+    console.error("[Track API] Ingestion error:", err.message);
+    return NextResponse.json({ success: false, error: "Internal processing error" }, { status: 500 });
   }
 }

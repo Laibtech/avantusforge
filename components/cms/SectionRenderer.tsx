@@ -3,8 +3,28 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Sparkles, CheckCircle2, ChevronDown, Linkedin } from "lucide-react";
+import { ArrowRight, Sparkles, CheckCircle2, ChevronDown } from "lucide-react";
 import { CMSSection } from "@/lib/cms-types";
+
+function LinkedinIcon({ className = "w-4 h-4" }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect x="2" y="9" width="4" height="12" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  );
+}
 
 // Import existing authentic home components
 import HeroSection from "@/components/home/HeroSection";
@@ -94,7 +114,13 @@ export default function SectionRenderer({ section, pageSlug, teamMembers }: Sect
   }
 
   if (pageSlug === "team") {
-    if (section.id === "members_grid" || section.id === "team_grid" || section.type === "team_grid") {
+    if (
+      section.id === "members_grid" ||
+      section.id === "team_grid" ||
+      section.id === "team" ||
+      section.type === "team_grid" ||
+      section.type === "team"
+    ) {
       return <TeamGridSection section={section} teamMembers={teamMembers} />;
     }
   }
@@ -121,9 +147,11 @@ export default function SectionRenderer({ section, pageSlug, teamMembers }: Sect
       ? "hero"
       : section.id.includes("cta")
         ? "cta_banner"
-        : section.id.includes("grid") || section.id === "catalog"
-          ? "services_grid"
-          : undefined);
+        : section.id.includes("team")
+          ? "team_grid"
+          : section.id.includes("grid") || section.id === "catalog"
+            ? "services_grid"
+            : undefined);
 
   switch (sectionType) {
     case "hero":
@@ -170,6 +198,7 @@ export default function SectionRenderer({ section, pageSlug, teamMembers }: Sect
       return <ContactFormSection section={section} />;
 
     case "team_grid":
+    case "team":
       return <TeamGridSection section={section} teamMembers={teamMembers} />;
 
     case "blog_listing":
@@ -577,19 +606,29 @@ function TeamGridSection({
   const LINKEDIN_MAP: Record<string, string> = {
     "laiba": "https://www.linkedin.com/in/laiba-baig-dev/",
     "laiba baig": "https://www.linkedin.com/in/laiba-baig-dev/",
+    "ceo": "https://www.linkedin.com/in/laiba-baig-dev/",
+    "chief executive": "https://www.linkedin.com/in/laiba-baig-dev/",
     "muzamil": "https://www.linkedin.com/in/muzamilbiz/",
+    "operations": "https://www.linkedin.com/in/muzamilbiz/",
+    "ops": "https://www.linkedin.com/in/muzamilbiz/",
     "maira": "https://www.linkedin.com/in/maira-faizan-graphic-designer/",
     "maira faizan": "https://www.linkedin.com/in/maira-faizan-graphic-designer/",
+    "graphic": "https://www.linkedin.com/in/maira-faizan-graphic-designer/",
+    "designer": "https://www.linkedin.com/in/maira-faizan-graphic-designer/",
     "bilal": "https://www.linkedin.com/in/abdulraufbilal/",
+    "abdul rauf": "https://www.linkedin.com/in/abdulraufbilal/",
     "abdul rauf bilal": "https://www.linkedin.com/in/abdulraufbilal/",
+    "abdulrauf": "https://www.linkedin.com/in/abdulraufbilal/",
+    "technical": "https://www.linkedin.com/in/abdulraufbilal/",
+    "tech": "https://www.linkedin.com/in/abdulraufbilal/",
   };
 
-  const getLinkedIn = (name?: string, fallbackUrl?: string) => {
-    if (fallbackUrl) return fallbackUrl;
-    if (!name) return "";
-    const clean = name.toLowerCase().trim();
+  const getLinkedIn = (name?: string, fallbackUrl?: string, role?: string) => {
+    if (fallbackUrl && fallbackUrl.trim().startsWith("http")) return fallbackUrl.trim();
+    const cleanName = (name || "").toLowerCase().trim();
+    const cleanRole = (role || "").toLowerCase().trim();
     for (const [key, url] of Object.entries(LINKEDIN_MAP)) {
-      if (clean.includes(key)) return url;
+      if (cleanName.includes(key) || cleanRole.includes(key)) return url;
     }
     return "";
   };
@@ -638,7 +677,7 @@ function TeamGridSection({
       role: item.role || item.subtitle || "AvantusForge",
       image: item.image || item.image_url || "/team/laiba-baig-ceo.jpg",
       bio: item.bio || item.description || "",
-      linkedin_url: getLinkedIn(item.name || item.title, item.linkedin_url),
+      linkedin_url: getLinkedIn(item.name || item.title, item.linkedin_url, item.role || item.subtitle),
     }));
   } else if (teamMembers && teamMembers.length > 0) {
     const active = teamMembers.filter((m: any) => m.is_active !== false && m.is_active !== 0);
@@ -649,7 +688,7 @@ function TeamGridSection({
         role: m.role || m.title || "Leadership",
         image: m.image_url || m.image || (m.role?.toLowerCase().includes("ceo") ? "/team/laiba-baig-ceo.jpg" : "/team/ops-lead.jpg"),
         bio: m.bio || "",
-        linkedin_url: getLinkedIn(m.name || m.title, m.linkedin_url),
+        linkedin_url: getLinkedIn(m.name || m.title, m.linkedin_url, m.role || m.title),
       }));
     }
   }
@@ -692,17 +731,6 @@ function TeamGridSection({
                     {member.role.split("&")[0].trim()}
                   </span>
                 </div>
-                {member.linkedin_url && (
-                  <a
-                    href={member.linkedin_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/95 hover:bg-[#0A66C2] hover:text-white text-[#0A66C2] backdrop-blur-xs border border-[#EADFE3] flex items-center justify-center transition-all duration-200 shadow-xs"
-                    title={`View ${member.name} on LinkedIn`}
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                )}
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
@@ -717,27 +745,28 @@ function TeamGridSection({
                   </p>
                 </div>
                 <div className="pt-4 border-t border-[#E8DDE0]/60 flex items-center justify-between text-xs text-[#6F6568]">
+                  <span>AvantusForge</span>
                   {member.linkedin_url ? (
                     <a
                       href={member.linkedin_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-[#0A66C2] hover:text-[#004182] font-semibold transition-colors"
+                      className="text-[#750F2C] hover:text-[#52091E] font-semibold inline-flex items-center gap-1.5 transition-colors group/link"
                       title={`Connect with ${member.name} on LinkedIn`}
                     >
-                      <Linkedin className="w-3.5 h-3.5" />
+                      <LinkedinIcon className="w-3.5 h-3.5 text-[#0A66C2]" />
                       <span>LinkedIn Profile</span>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/link:translate-x-0.5" />
                     </a>
                   ) : (
-                    <span>AvantusForge</span>
+                    <Link
+                      href="/contact"
+                      className="text-[#750F2C] font-semibold hover:underline inline-flex items-center gap-1"
+                    >
+                      <span>Connect</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
                   )}
-                  <Link
-                    href="/contact"
-                    className="text-[#750F2C] font-semibold hover:underline inline-flex items-center gap-1"
-                  >
-                    <span>Connect</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
                 </div>
               </div>
             </div>

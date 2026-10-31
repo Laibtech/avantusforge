@@ -32,7 +32,7 @@ git add -A
 
 echo.
 echo [3/5] Committing changes...
-git commit -m "Complete AvantusForge Enterprise CMS Redesign and Official Team LinkedIn Profiles"
+git commit -m "AvantusForge Enterprise Platform: Full CMS Redesign, Team Integration, and Real-Time Live Visitor Tracking"
 
 echo.
 echo [4/5] Configuring GitHub remote origin...

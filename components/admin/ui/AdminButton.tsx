@@ -9,8 +9,8 @@ export interface AdminButtonProps {
   target?: string;
   disabled?: boolean;
   loading?: boolean;
-  icon?: React.ElementType;
-  iconRight?: React.ElementType;
+  icon?: React.ElementType | React.ReactNode;
+  iconRight?: React.ElementType | React.ReactNode;
   onClick?: (e: React.MouseEvent) => void;
   type?: "button" | "submit" | "reset";
   className?: string;
@@ -25,8 +25,8 @@ export default function AdminButton({
   target,
   disabled = false,
   loading = false,
-  icon: Icon,
-  iconRight: IconRight,
+  icon,
+  iconRight,
   onClick,
   type = "button",
   className = "",
@@ -58,15 +58,24 @@ export default function AdminButton({
       "bg-transparent hover:bg-[#FAF7F7] text-[#777078] hover:text-[#24151B]",
   };
 
+  const renderIcon = (iconItem: any, defaultClass: string) => {
+    if (!iconItem) return null;
+    if (React.isValidElement(iconItem)) {
+      return iconItem;
+    }
+    const IconComponent = iconItem;
+    return <IconComponent className={defaultClass} />;
+  };
+
   const content = (
     <>
       {loading ? (
         <Loader2 className="w-3.5 h-3.5 animate-spin shrink-0" />
-      ) : Icon ? (
-        <Icon className="w-3.5 h-3.5 shrink-0" />
-      ) : null}
+      ) : (
+        renderIcon(icon, "w-3.5 h-3.5 shrink-0")
+      )}
       {children && <span>{children}</span>}
-      {!loading && IconRight && <IconRight className="w-3.5 h-3.5 shrink-0" />}
+      {!loading && renderIcon(iconRight, "w-3.5 h-3.5 shrink-0")}
     </>
   );
 
@@ -92,4 +101,3 @@ export default function AdminButton({
     </button>
   );
 }
-
