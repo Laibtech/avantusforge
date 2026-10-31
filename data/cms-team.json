@@ -1,0 +1,46 @@
+[
+  {
+    "id": 1,
+    "name": "Laiba Baig",
+    "title": "Laiba Baig",
+    "role": "Chief Executive Officer",
+    "bio": "Founder and Chief Executive Officer guiding strategic direction, enterprise technology solutions, and global marketplace expansion for AvantusForge.",
+    "image_url": "/team/laiba-baig-ceo.jpg",
+    "order_index": 1,
+    "is_active": 1,
+    "linkedin_url": "https://www.linkedin.com/in/laiba-baig-dev/"
+  },
+  {
+    "id": 2,
+    "name": "Maira Faizan",
+    "title": "Maira Faizan",
+    "role": "Graphic Designer",
+    "bio": "Directing brand identity systems, conversion-driven visual design, storefront graphics, and premium digital marketing assets.",
+    "image_url": "/team/maira.jpg",
+    "order_index": 2,
+    "is_active": 1,
+    "linkedin_url": "https://www.linkedin.com/in/maira-faizan-graphic-designer/"
+  },
+  {
+    "id": 3,
+    "name": "Abdul Rauf Bilal",
+    "title": "Abdul Rauf Bilal",
+    "role": "Technical Director",
+    "bio": "Leading bespoke system architecture, custom ERP/CRM engineering, and high-performance cloud applications.",
+    "image_url": "/team/tech-lead.jpg",
+    "order_index": 3,
+    "is_active": 1,
+    "linkedin_url": "https://www.linkedin.com/in/abdulraufbilal/"
+  },
+  {
+    "id": 4,
+    "name": "Muzamil",
+    "title": "Muzamil",
+    "role": "Operations Director",
+    "bio": "Overseeing client digital delivery, e-commerce growth strategies, and international market development.",
+    "image_url": "/uploads/cebbef9afb9b84025540e70a.png",
+    "order_index": 4,
+    "is_active": true,
+    "linkedin_url": "https://www.linkedin.com/in/muzamilbiz/"
+  }
+]

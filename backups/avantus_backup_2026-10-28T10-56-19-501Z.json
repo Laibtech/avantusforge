@@ -1,0 +1,182 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-28T10:56:19.504Z",
+    "version": "1.0",
+    "environment": "development",
+    "generator": "AvantusForge Automated Disaster Recovery Engine"
+  },
+  "tables": {
+    "contact_inquiries": [
+      {
+        "id": 1,
+        "name": "Marcus Vance",
+        "email": "marcus.vance@vancetech.co.uk",
+        "phone": "+44 20 7946 0912",
+        "company": "Vance Technologies UK",
+        "service": "Custom Software Development",
+        "budget": "£25k - £50k",
+        "message": "We are looking for bespoke portal development to automate warehouse logistics and stock dispatch.",
+        "status": "New",
+        "priority": "High",
+        "lead_source": "Website Form",
+        "assigned_to": "Unassigned",
+        "internal_notes": null,
+        "follow_up_date": null,
+        "created_at": "2026-10-27T12:29:05.000Z",
+        "updated_at": "2026-10-27T12:29:05.000Z"
+      }
+    ],
+    "cms_team_members": [
+      {
+        "id": 1,
+        "name": "Laiba Baig",
+        "title": "CEO Laiba Baig",
+        "role": "Chief Executive Officer",
+        "bio": "Founder and Chief Executive Officer guiding strategic direction, enterprise technology solutions, and global marketplace expansion for AvantusForge.",
+        "image_url": "/team/laiba-baig-ceo.jpg",
+        "order_index": 1,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:00:13.000Z"
+      },
+      {
+        "id": 2,
+        "name": "Maira",
+        "title": "Maira",
+        "role": "Graphic Designer",
+        "bio": "Directing brand identity systems, conversion-driven visual design, storefront graphics, and premium digital marketing assets.",
+        "image_url": "/team/maira.jpg",
+        "order_index": 2,
+        "is_active": 1,
+        "updated_at": "2026-10-27T12:41:03.000Z"
+      },
+      {
+        "id": 3,
+        "name": "Bilal",
+        "title": "Bilal",
+        "role": "Technical Director",
+        "bio": "Leading bespoke system architecture, custom ERP/CRM engineering, and high-performance cloud applications.",
+        "image_url": "/team/tech-lead.jpg",
+        "order_index": 3,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:52:03.000Z"
+      },
+      {
+        "id": 4,
+        "name": "Muzamil",
+        "title": "Muzamil",
+        "role": "Operations Director",
+        "bio": "Overseeing client digital delivery, e-commerce growth strategies, and international market development.",
+        "image_url": "/team/ops-lead.jpg",
+        "order_index": 4,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:52:03.000Z"
+      }
+    ],
+    "admin_users": [
+      {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@avantusforge.com",
+        "password_hash": "e719e7fe18988cce3118f4259451b89a4085ae21271e72651521850e1005651cb0cb6973cb194c8b42692ec8808f5863f51e9c8e84edbd8b6be9b3a5e1f78c08",
+        "salt": "574d7ccbfc5b80991f3fc855ff42ee73",
+        "role": "super_admin",
+        "full_name": "Executive Super Administrator",
+        "mfa_enabled": 0,
+        "mfa_secret": null,
+        "failed_attempts": 0,
+        "locked_until": null,
+        "last_login": "2026-10-28T08:47:48.000Z",
+        "created_at": "2026-10-28T08:17:04.000Z",
+        "updated_at": "2026-10-28T08:47:48.000Z"
+      }
+    ],
+    "cms_pages": [],
+    "cms_settings": [],
+    "security_events": [
+      {
+        "id": 1,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:17:05.000Z"
+      },
+      {
+        "id": 2,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:38:10.000Z"
+      },
+      {
+        "id": 3,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:38:11.000Z"
+      },
+      {
+        "id": 4,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:39:48.000Z"
+      },
+      {
+        "id": 5,
+        "event_type": "MANUAL_BACKUP_TRIGGERED",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "127.0.0.1",
+        "detection_reason": "Administrator initiated encrypted database snapshot and checksum generation.",
+        "details": "",
+        "action_taken": "Created snapshot avantus_backup_2026-10-28T08-40-09-734Z.json (4.99 KB). Integrity checksum: 2161677506629cbb64a744bbff50a84aa19d4efb412dcdd7312a9236c562015e",
+        "status": "Active",
+        "created_at": "2026-10-28T08:40:10.000Z"
+      },
+      {
+        "id": 6,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:41:33.000Z"
+      },
+      {
+        "id": 7,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:47:48.000Z"
+      }
+    ]
+  }
+}

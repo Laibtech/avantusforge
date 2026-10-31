@@ -1,0 +1,1407 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-29T06:50:38.327Z",
+    "version": "1.0",
+    "environment": "development",
+    "generator": "AvantusForge Automated Disaster Recovery Engine"
+  },
+  "tables": {
+    "contact_inquiries": [
+      {
+        "id": 1,
+        "name": "Marcus Vance",
+        "email": "marcus.vance@vancetech.co.uk",
+        "phone": "+44 20 7946 0912",
+        "company": "Vance Technologies UK",
+        "service": "Custom Software Development",
+        "budget": "£25k - £50k",
+        "message": "We are looking for bespoke portal development to automate warehouse logistics and stock dispatch.",
+        "status": "New",
+        "priority": "High",
+        "lead_source": "Website Form",
+        "assigned_to": "Unassigned",
+        "internal_notes": null,
+        "follow_up_date": null,
+        "created_at": "2026-10-27T12:29:05.000Z",
+        "updated_at": "2026-10-27T12:29:05.000Z"
+      }
+    ],
+    "cms_team_members": [
+      {
+        "id": 1,
+        "name": "Laiba Baig",
+        "title": "CEO Laiba Baig",
+        "role": "Chief Executive Officer",
+        "bio": "Founder and Chief Executive Officer guiding strategic direction, enterprise technology solutions, and global marketplace expansion for AvantusForge.",
+        "image_url": "/team/laiba-baig-ceo.jpg",
+        "order_index": 1,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:00:13.000Z"
+      },
+      {
+        "id": 2,
+        "name": "Maira",
+        "title": "Maira",
+        "role": "Graphic Designer",
+        "bio": "Directing brand identity systems, conversion-driven visual design, storefront graphics, and premium digital marketing assets.",
+        "image_url": "/team/maira.jpg",
+        "order_index": 2,
+        "is_active": 1,
+        "updated_at": "2026-10-27T12:41:03.000Z"
+      },
+      {
+        "id": 3,
+        "name": "Bilal",
+        "title": "Bilal",
+        "role": "Technical Director",
+        "bio": "Leading bespoke system architecture, custom ERP/CRM engineering, and high-performance cloud applications.",
+        "image_url": "/team/tech-lead.jpg",
+        "order_index": 3,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:52:03.000Z"
+      },
+      {
+        "id": 4,
+        "name": "Muzamil",
+        "title": "Muzamil",
+        "role": "Operations Director",
+        "bio": "Overseeing client digital delivery, e-commerce growth strategies, and international market development.",
+        "image_url": "/team/ops-lead.jpg",
+        "order_index": 4,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:52:03.000Z"
+      }
+    ],
+    "admin_users": [
+      {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@avantusforge.com",
+        "password_hash": "e719e7fe18988cce3118f4259451b89a4085ae21271e72651521850e1005651cb0cb6973cb194c8b42692ec8808f5863f51e9c8e84edbd8b6be9b3a5e1f78c08",
+        "salt": "574d7ccbfc5b80991f3fc855ff42ee73",
+        "role": "super_admin",
+        "full_name": "Executive Super Administrator",
+        "mfa_enabled": 0,
+        "mfa_secret": null,
+        "failed_attempts": 0,
+        "locked_until": null,
+        "last_login": "2026-10-29T06:50:37.000Z",
+        "created_at": "2026-10-28T08:17:04.000Z",
+        "updated_at": "2026-10-29T06:50:37.000Z"
+      }
+    ],
+    "admin_activity_logs": [
+      {
+        "id": 1,
+        "actor": "Executive Super Admin",
+        "action": "SYSTEM_INITIALIZATION",
+        "entity_type": "System",
+        "entity_id": "CMS",
+        "details": "Enterprise CMS modules, database tables, and analytics tracking successfully deployed.",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-28T12:27:07.000Z"
+      },
+      {
+        "id": 2,
+        "actor": "Executive Super Admin",
+        "action": "SECURITY_HARDENING",
+        "entity_type": "Security",
+        "entity_id": "Auth",
+        "details": "PBKDF2-SHA512 password encryption and sliding-window rate limiting enforced.",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-28T12:27:07.000Z"
+      },
+      {
+        "id": 3,
+        "actor": "admin",
+        "action": "INVOICE_CREATED",
+        "entity_type": "Finance",
+        "entity_id": "1",
+        "details": "Generated invoice INV-TEST-3489 ($3850.00)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:44:03.000Z"
+      },
+      {
+        "id": 4,
+        "actor": "admin",
+        "action": "INTEGRATION_TESTED",
+        "entity_type": "Integration",
+        "entity_id": "storage",
+        "details": "Ran diagnostics on storage: Verified (Storage directory 'public/uploads' read/write probe passed successfully.)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:44:11.000Z"
+      },
+      {
+        "id": 5,
+        "actor": "admin",
+        "action": "PAYROLL_GENERATED",
+        "entity_type": "HRMS",
+        "entity_id": "1",
+        "details": "Generated & approved payroll cycle for October 2025 (PKR 1060000.00)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:44:58.000Z"
+      },
+      {
+        "id": 6,
+        "actor": "admin",
+        "action": "INVOICE_CREATED",
+        "entity_type": "Finance",
+        "entity_id": "2",
+        "details": "Generated invoice INV-TEST-3826 ($3850.00)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:49:13.000Z"
+      },
+      {
+        "id": 7,
+        "actor": "admin",
+        "action": "INTEGRATION_TESTED",
+        "entity_type": "Integration",
+        "entity_id": "storage",
+        "details": "Ran diagnostics on storage: Verified (Storage directory 'public/uploads' read/write probe passed successfully.)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:49:14.000Z"
+      },
+      {
+        "id": 8,
+        "actor": "admin",
+        "action": "INVOICE_CREATED",
+        "entity_type": "Finance",
+        "entity_id": "3",
+        "details": "Generated invoice INV-TEST-7658 ($3850.00)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:50:37.000Z"
+      },
+      {
+        "id": 9,
+        "actor": "admin",
+        "action": "INTEGRATION_TESTED",
+        "entity_type": "Integration",
+        "entity_id": "storage",
+        "details": "Ran diagnostics on storage: Verified (Storage directory 'public/uploads' read/write probe passed successfully.)",
+        "ip_address": "127.0.0.1",
+        "created_at": "2026-10-29T06:50:37.000Z"
+      }
+    ],
+    "cms_pages": [
+      {
+        "id": 1,
+        "slug": "home",
+        "title": "Home",
+        "seo_title": "AvantusForge | Custom Software, E-Commerce & Digital Systems",
+        "meta_description": "International technology and software engineering studio. We build bespoke software platforms, high-converting digital storefronts, and automated business workflows.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Hero Section\",\"enabled\":true,\"eyebrow\":\"CUSTOM SOFTWARE • WEB • DIGITAL SOLUTIONS\",\"headline\":\"Forging Digital Solutions That Move Your Business Forward.\"},{\"id\":\"trust_strip\",\"name\":\"Trust & Market Credibility Strip\",\"enabled\":true},{\"id\":\"business_problems\",\"name\":\"Business Problem & Solution\",\"enabled\":true},{\"id\":\"services\",\"name\":\"Interactive Services Showcase\",\"enabled\":true},{\"id\":\"editorial_story\",\"name\":\"Editorial Story & CEO Vision\",\"enabled\":true},{\"id\":\"tech_stack\",\"name\":\"Modern Technology Stack\",\"enabled\":true},{\"id\":\"stats\",\"name\":\"Commercial Statistics\",\"enabled\":true},{\"id\":\"process\",\"name\":\"Numbered 4-Step Process\",\"enabled\":true},{\"id\":\"selected_work\",\"name\":\"Selected Work Highlights\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Bottom Call to Action Banner\",\"enabled\":true},{\"id\":\"faq\",\"name\":\"Frequently Asked Questions\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 2,
+        "slug": "about",
+        "title": "About Us",
+        "seo_title": "About AvantusForge | Technology Meets Business Growth",
+        "meta_description": "AvantusForge is an international digital consultancy and engineering studio helping businesses automate, build, and scale operations.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"About Hero Section\",\"enabled\":true},{\"id\":\"leadership\",\"name\":\"Executive Leadership & CEO Vision\",\"enabled\":true},{\"id\":\"approach\",\"name\":\"Our Engineering Approach\",\"enabled\":true},{\"id\":\"beliefs\",\"name\":\"Core Convictions & Beliefs\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 3,
+        "slug": "services",
+        "title": "Services",
+        "seo_title": "Our Services | Custom Software, E-Commerce & Cloud Systems",
+        "meta_description": "Explore AvantusForge's full suite of enterprise digital engineering, custom software, Shopify development, and automation services.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Services Hero\",\"enabled\":true},{\"id\":\"services_grid\",\"name\":\"All Services Grid\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 4,
+        "slug": "work",
+        "title": "Portfolio & Work",
+        "seo_title": "Portfolio & Case Studies | AvantusForge Digital Agency",
+        "meta_description": "Real delivered systems, verified e-commerce growth, and bespoke software built by AvantusForge.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Work Hero\",\"enabled\":true},{\"id\":\"split_gallery\",\"name\":\"Split Section Project Cards (Design 4)\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 5,
+        "slug": "team",
+        "title": "Leadership & Team",
+        "seo_title": "Our Leadership & Team | AvantusForge Digital Agency",
+        "meta_description": "Meet the executive, technical, and operational leadership behind AvantusForge. Led by CEO Laiba Baig.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Team Hero\",\"enabled\":true},{\"id\":\"members_grid\",\"name\":\"Executive Leadership Grid\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 6,
+        "slug": "contact",
+        "title": "Contact Us",
+        "seo_title": "Contact AvantusForge | Start Your Project Today",
+        "meta_description": "Get in touch with our executive leadership and software engineering team for custom software, web platforms, and digital growth.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Contact Hero & Direct Channels\",\"enabled\":true},{\"id\":\"form\",\"name\":\"Intake & Project Inquiry Form\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      }
+    ],
+    "cms_settings": [
+      {
+        "id": 1,
+        "setting_key": "site_name",
+        "setting_value": "AvantusForge",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 2,
+        "setting_key": "tagline",
+        "setting_value": "Engineering High-Performance Digital Platforms, Bespoke Software & Amazon Growth",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 3,
+        "setting_key": "contact_email",
+        "setting_value": "info@avantusforge.com",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 4,
+        "setting_key": "contact_phone",
+        "setting_value": "+92 327 4074472",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 5,
+        "setting_key": "contact_address",
+        "setting_value": "AvantusForge Global Operations UK, USA, UAE, Kuwait, Pakistan",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 6,
+        "setting_key": "target_markets",
+        "setting_value": "[\"United Kingdom\",\"United States\",\"United Arab Emirates\",\"Kuwait\",\"Pakistan\"]",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 7,
+        "setting_key": "verified_amazon_sales",
+        "setting_value": "AED 70,000+",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 8,
+        "setting_key": "verified_amazon_period",
+        "setting_value": "6–7 months organic growth without paid ads",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 9,
+        "setting_key": "default_meta_title",
+        "setting_value": "AvantusForge | International Digital Agency & Software House",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 10,
+        "setting_key": "default_meta_description",
+        "setting_value": "Bespoke web platforms, custom ERP/CRM software, Amazon marketplace acceleration, and technical SEO for ambitious global businesses.",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 11,
+        "setting_key": "webhook_url",
+        "setting_value": "",
+        "updated_at": "2026-10-29T06:09:14.000Z"
+      },
+      {
+        "id": 12,
+        "setting_key": "updated_at",
+        "setting_value": "2026-10-29T06:25:54.371Z",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 14,
+        "setting_key": "brand_name",
+        "setting_value": "AvantusForge",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 15,
+        "setting_key": "logo_url",
+        "setting_value": "/logo.png",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 16,
+        "setting_key": "alternate_logo_url",
+        "setting_value": "/logo.png",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 17,
+        "setting_key": "favicon_url",
+        "setting_value": "/favicon.ico",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 19,
+        "setting_key": "official_tagline",
+        "setting_value": "Forging Digital Solutions That Move Your Business Forward",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 21,
+        "setting_key": "primary_email",
+        "setting_value": "info@avantusforge.com",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 22,
+        "setting_key": "secondary_email",
+        "setting_value": "sales@avantusforge.com",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 24,
+        "setting_key": "phone_number",
+        "setting_value": "+92 327 4074472",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 25,
+        "setting_key": "whatsapp_number",
+        "setting_value": "+92 327 4074472",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 27,
+        "setting_key": "operations_address",
+        "setting_value": "AvantusForge Global Operations UK, USA, UAE, Kuwait, Pakistan",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 28,
+        "setting_key": "business_hours",
+        "setting_value": "Monday – Friday: 9:00 AM – 6:00 PM (GMT+5)",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 29,
+        "setting_key": "timezone",
+        "setting_value": "Asia/Karachi",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 30,
+        "setting_key": "default_currency",
+        "setting_value": "USD",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 31,
+        "setting_key": "default_country",
+        "setting_value": "United Kingdom",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 32,
+        "setting_key": "consultation_cta_text",
+        "setting_value": "Get a Free Consultation",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 33,
+        "setting_key": "consultation_cta_url",
+        "setting_value": "/contact",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 34,
+        "setting_key": "footer_copyright",
+        "setting_value": "© 2026 AvantusForge. All rights reserved.",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 35,
+        "setting_key": "business_registration_info",
+        "setting_value": "AvantusForge Global Digital Technologies Pvt. Ltd.",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 36,
+        "setting_key": "social_linkedin",
+        "setting_value": "https://www.linkedin.com/company/avantusforge",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 37,
+        "setting_key": "social_facebook",
+        "setting_value": "https://www.facebook.com/Avantusforgeofficial",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 38,
+        "setting_key": "social_instagram",
+        "setting_value": "https://www.instagram.com/avantusforgeofficial/",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 39,
+        "setting_key": "social_profiles_json",
+        "setting_value": "[{\"id\":\"linkedin\",\"platform\":\"LinkedIn\",\"url\":\"https://www.linkedin.com/company/avantusforge\",\"label\":\"AvantusForge on LinkedIn\",\"is_active\":true,\"show_in_footer\":true,\"show_in_contact\":true,\"order_index\":1},{\"id\":\"facebook\",\"platform\":\"Facebook\",\"url\":\"https://www.facebook.com/Avantusforgeofficial\",\"label\":\"AvantusForge on Facebook\",\"is_active\":true,\"show_in_footer\":true,\"show_in_contact\":true,\"order_index\":2},{\"id\":\"instagram\",\"platform\":\"Instagram\",\"url\":\"https://www.instagram.com/avantusforgeofficial/\",\"label\":\"AvantusForge on Instagram\",\"is_active\":true,\"show_in_footer\":true,\"show_in_contact\":true,\"order_index\":3}]",
+        "updated_at": "2026-10-29T06:25:54.000Z"
+      },
+      {
+        "id": 41,
+        "setting_key": "target_markets_json",
+        "setting_value": "[{\"code\":\"gb\",\"name\":\"United Kingdom\",\"flag\":\"/flags/gb.svg\",\"is_active\":true,\"order_index\":1,\"currency\":\"GBP\",\"timezone\":\"Europe/London\"},{\"code\":\"us\",\"name\":\"United States\",\"flag\":\"/flags/us.svg\",\"is_active\":true,\"order_index\":2,\"currency\":\"USD\",\"timezone\":\"America/New_York\"},{\"code\":\"ae\",\"name\":\"United Arab Emirates\",\"flag\":\"/flags/ae.svg\",\"is_active\":true,\"order_index\":3,\"currency\":\"AED\",\"timezone\":\"Asia/Dubai\"},{\"code\":\"kw\",\"name\":\"Kuwait\",\"flag\":\"/flags/kw.svg\",\"is_active\":true,\"order_index\":4,\"currency\":\"KWD\",\"timezone\":\"Asia/Kuwait\"},{\"code\":\"pk\",\"name\":\"Pakistan\",\"flag\":\"/flags/pk.svg\",\"is_active\":true,\"order_index\":5,\"currency\":\"PKR\",\"timezone\":\"Asia/Karachi\"}]",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 44,
+        "setting_key": "amazon_achievement_title",
+        "setting_value": "Verified Gross Amazon Product Sales",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 45,
+        "setting_key": "amazon_sales_figure",
+        "setting_value": "AED 70,182.29",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 46,
+        "setting_key": "amazon_sales_currency",
+        "setting_value": "AED",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 47,
+        "setting_key": "amazon_period",
+        "setting_value": "6–7 months",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 48,
+        "setting_key": "amazon_context",
+        "setting_value": "Organic brand acceleration achieved without paid advertising expenditure.",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 49,
+        "setting_key": "amazon_proof_image",
+        "setting_value": "/images/amazon-aed-70k-sales-proof.png",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 50,
+        "setting_key": "amazon_is_visible",
+        "setting_value": "true",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 51,
+        "setting_key": "amazon_service_route",
+        "setting_value": "/services/amazon-services",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 54,
+        "setting_key": "default_og_image",
+        "setting_value": "/images/amazon-aed-70k-sales-proof.png",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 55,
+        "setting_key": "default_canonical_base",
+        "setting_value": "https://avantusforge.com",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 56,
+        "setting_key": "robots_indexing_enabled",
+        "setting_value": "true",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 57,
+        "setting_key": "organization_legal_name",
+        "setting_value": "AvantusForge Global Digital Technologies",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 58,
+        "setting_key": "site_maintenance_mode",
+        "setting_value": "false",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 59,
+        "setting_key": "announcement_banner_enabled",
+        "setting_value": "false",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 60,
+        "setting_key": "announcement_banner_text",
+        "setting_value": "Accelerate your digital operations — schedule an architectural consultation today.",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 61,
+        "setting_key": "cookie_consent_enabled",
+        "setting_value": "true",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 62,
+        "setting_key": "ga4_measurement_id",
+        "setting_value": "G-XXXXXXXXXX",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 63,
+        "setting_key": "primary_contact_destination",
+        "setting_value": "info@avantusforge.com",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      },
+      {
+        "id": 64,
+        "setting_key": "notification_email_alerts",
+        "setting_value": "true",
+        "updated_at": "2026-10-29T06:25:55.000Z"
+      }
+    ],
+    "cms_services": [
+      {
+        "id": 1,
+        "slug": "custom-software-development",
+        "title": "Custom Software & Systems",
+        "category": "Software Engineering",
+        "short_desc": "We build tailored software solutions around the way your business actually operates — from internal management systems to complete business platforms.",
+        "full_content": null,
+        "icon": "Layers",
+        "deliverables_json": "[\"Business Management Systems\",\"Custom Web Applications\",\"ERP & CRM Solutions\",\"Workflow & Process Systems\",\"Admin & Customer Portals\"]",
+        "pricing_tier": "Enterprise Bespoke",
+        "is_featured": 1,
+        "order_index": 1,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 2,
+        "slug": "ecommerce-development",
+        "title": "Websites & E-Commerce",
+        "category": "Digital Commerce",
+        "short_desc": "We build high-converting online storefronts and modern commercial websites engineered for performance, brand authority, and seamless customer transactions.",
+        "full_content": null,
+        "icon": "Layers",
+        "deliverables_json": "[\"Shopify & Custom Storefronts\",\"Headless E-Commerce Builds\",\"Corporate & Editorial Websites\",\"Conversion Rate Optimization\",\"Payment & Inventory Sync\"]",
+        "pricing_tier": "Enterprise Bespoke",
+        "is_featured": 1,
+        "order_index": 2,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 3,
+        "slug": "mobile-app-development",
+        "title": "Mobile App Development",
+        "category": "Mobile Engineering",
+        "short_desc": "Native iOS & Android mobile applications engineered with responsive UX, offline data synchronization, and enterprise cloud integration.",
+        "full_content": null,
+        "icon": "Layers",
+        "deliverables_json": "[\"iOS Native Swift Engineering\",\"Android Kotlin Applications\",\"React Native Cross-Platform\",\"Real-Time Push & Telemetry\",\"Offline Data Caching\"]",
+        "pricing_tier": "Enterprise Bespoke",
+        "is_featured": 1,
+        "order_index": 3,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 4,
+        "slug": "saas-erp-crm",
+        "title": "SaaS, ERP & CRM Architecture",
+        "category": "Enterprise Systems",
+        "short_desc": "Centralize operations, customer records, and commercial data into synchronized software ecosystems built for reliability and scale.",
+        "full_content": null,
+        "icon": "Layers",
+        "deliverables_json": "[\"Multi-Tenant SaaS Products\",\"Bespoke ERP Infrastructure\",\"Automated Billing & Subscriptions\",\"Role-Based Access Control\",\"Data Warehouse Integration\"]",
+        "pricing_tier": "Enterprise Bespoke",
+        "is_featured": 0,
+        "order_index": 4,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 5,
+        "slug": "seo-digital-marketing",
+        "title": "SEO & Growth Marketing",
+        "category": "Growth & Visibility",
+        "short_desc": "Data-backed visibility strategies connecting high-intent commercial buyers directly with your digital products and services.",
+        "full_content": null,
+        "icon": "Layers",
+        "deliverables_json": "[\"Technical & Programmatic SEO\",\"Core Web Vitals Optimization\",\"High-Authority Backlink Acquisition\",\"Multi-Channel Ad Spend Strategy\",\"Commercial Conversion Funnels\"]",
+        "pricing_tier": "Enterprise Bespoke",
+        "is_featured": 0,
+        "order_index": 5,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 6,
+        "slug": "business-automation-api",
+        "title": "Business Automation & APIs",
+        "category": "Integration & Cloud",
+        "short_desc": "Connect disconnected systems, eliminate manual data entry, and streamline operations with custom integrations.",
+        "full_content": null,
+        "icon": "Layers",
+        "deliverables_json": "[\"Custom API Development & Integrations\",\"Webhook Automation Pipelines\",\"ERP & CRM System Bridges\",\"Payment & Banking Synchronizations\",\"Event-Driven Microservices\"]",
+        "pricing_tier": "Enterprise Bespoke",
+        "is_featured": 0,
+        "order_index": 6,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      }
+    ],
+    "cms_solutions": [],
+    "cms_portfolio": [
+      {
+        "id": 1,
+        "slug": "hrms",
+        "title": "HRMS & Custom Business Management Software",
+        "client_name": "Global Workforce Operations",
+        "category": "Software & HRMS",
+        "tagline": "Smarter Tools. Stronger Teams.",
+        "summary": "A unified cloud architecture digitizing multi-department workforce operations, automated approval hierarchies, and payroll workflows, paired with an integrated mobile companion application.",
+        "image_url": "/projects/vendor-management.jpg",
+        "deliverables_json": "[\"Custom Software Development\",\"Workforce & Payroll Workflows\",\"Business Process Digitization\",\"Mobile Companion Application\"]",
+        "results_metric": "82% Admin Time Saved",
+        "external_url": null,
+        "order_index": 1,
+        "is_featured": 1,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 2,
+        "slug": "caremon-consulting",
+        "title": "Caremon D2C Wellness Flagship",
+        "client_name": "Caremon Group UK",
+        "category": "E-commerce",
+        "tagline": "Speed That Converts.",
+        "summary": "High-converting bespoke digital commerce storefront engineered with sub-second page loads, conversion rate architecture, and integrated fulfillment automation.",
+        "image_url": "/projects/caremon-real.webp",
+        "deliverables_json": "[\"Custom Shopify 2.0 Theme Engineering\",\"Headless Architecture Speed Optimizations\",\"Conversion Funnel Engineering\",\"Multi-Currency Payment Gateways\"]",
+        "results_metric": "4.8x Conversion Lift",
+        "external_url": null,
+        "order_index": 2,
+        "is_featured": 1,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 3,
+        "slug": "oasis-consulting",
+        "title": "Oasis Global Consulting Digital Presence",
+        "client_name": "Oasis Global Consulting (Pvt.) Ltd.",
+        "category": "Business Websites",
+        "tagline": "Regulatory Trust Signals & Corporate Architecture.",
+        "summary": "A distinguished corporate web platform positioning Oasis Global Consulting at the intersection of regulatory compliance, investment facilitation, and executive business setups.",
+        "image_url": "/projects/oasis-consulting.png",
+        "deliverables_json": "[\"Custom Corporate Web Architecture\",\"Regulatory Credibility Positioning\",\"Secure Client Intake & Onboarding\",\"Technical SEO & Search Authority\"]",
+        "results_metric": "320% Qualified Inquiries",
+        "external_url": null,
+        "order_index": 3,
+        "is_featured": 1,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 4,
+        "slug": "fama-bags",
+        "title": "FAMA Handcrafted Leather Goods",
+        "client_name": "FAMA Leather House",
+        "category": "E-commerce",
+        "tagline": "Luxury Brand Storytelling Meets High-Velocity Sales.",
+        "summary": "Editorial digital commerce destination bringing bespoke leather craftsmanship to international luxury buyers across the UK and UAE.",
+        "image_url": "/projects/fama-real.webp",
+        "deliverables_json": "[\"Art-Directed Visual Storytelling\",\"Mobile-First Shopping Experience\",\"Automated Inventory & Cart Synchronization\",\"A/B Tested Checkout Funnel\"]",
+        "results_metric": "AED 70k+ Verified Sales",
+        "external_url": null,
+        "order_index": 4,
+        "is_featured": 1,
+        "status": "published",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      }
+    ],
+    "cms_blogs": [
+      {
+        "id": 1,
+        "slug": "when-to-replace-spreadsheets-with-custom-software",
+        "title": "When to Replace Operational Spreadsheets with Custom Software",
+        "category": "Business Systems",
+        "author": "Bilal",
+        "author_role": "Technical Director",
+        "featured_image": null,
+        "excerpt": "Spreadsheets are brilliant for early prototyping, but lethal for scaling. How to recognize the exact inflection point when fragmented Google Sheets and Excel macros begin silently bleeding team hours.",
+        "content": "Every ambitious company reaches a threshold where shared spreadsheets break down. Concurrency collisions, missing audit histories, broken formulas, and manual copy-pasting degrade operational reliability. Custom web applications provide atomic database transactions, strict role permissions, and automated approval workflows that protect company data.",
+        "read_time": "7 min read",
+        "tags_json": "[\"Custom Software\",\"Architecture\",\"ERP\",\"Scalability\"]",
+        "status": "published",
+        "published_at": "2026-10-28T12:27:06.000Z",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 2,
+        "slug": "headless-shopify-vs-custom-liquid-theme",
+        "title": "Headless Shopify vs. Bespoke Liquid Themes: What Ambitious Brands Actually Need",
+        "category": "Ecommerce",
+        "author": "Muzamil",
+        "author_role": "Operations Director",
+        "featured_image": null,
+        "excerpt": "A pragmatic engineering comparison between headless Next.js frontends and native Liquid 2.0 section architecture. Why 90% of stores are better served by eliminating third-party app bloat than rebuilding headless.",
+        "content": "Headless e-commerce offers unparalleled rendering control, but introduces significant infrastructure overhead, complex deployment pipelines, and third-party app incompatibilities. By rigorously optimizing native Shopify 2.0 themes and stripping away redundant apps, brands achieve sub-second load times at a fraction of maintenance cost.",
+        "read_time": "6 min read",
+        "tags_json": "[\"Shopify\",\"Ecommerce\",\"Performance\",\"Web Development\"]",
+        "status": "published",
+        "published_at": "2026-10-28T12:27:06.000Z",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 3,
+        "slug": "building-resilient-automation-pipelines",
+        "title": "Building Resilient Automation Pipelines Without Fragile No-Code Lock-In",
+        "category": "Automation",
+        "author": "Bilal",
+        "author_role": "Technical Director",
+        "featured_image": null,
+        "excerpt": "Why relying purely on no-code webhook zaps causes silent system failure, and how to build lightweight serverless API microservices with proper error catch loops and automated notification logging.",
+        "content": "No-code automation tools are fantastic for simple triggers, but fail silently when API payloads change or rate limits are reached. Building dedicated backend webhook endpoints with retry mechanisms, dead-letter queues, and Slack alerts ensures mission-critical operations never drop data.",
+        "read_time": "5 min read",
+        "tags_json": "[\"Automation\",\"APIs\",\"Cloud\",\"Reliability\"]",
+        "status": "published",
+        "published_at": "2026-10-28T12:27:06.000Z",
+        "created_at": "2026-10-28T12:27:06.000Z",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      }
+    ],
+    "cms_media": [],
+    "security_events": [
+      {
+        "id": 1,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:17:05.000Z"
+      },
+      {
+        "id": 2,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:38:10.000Z"
+      },
+      {
+        "id": 3,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:38:11.000Z"
+      },
+      {
+        "id": 4,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:39:48.000Z"
+      },
+      {
+        "id": 5,
+        "event_type": "MANUAL_BACKUP_TRIGGERED",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "127.0.0.1",
+        "detection_reason": "Administrator initiated encrypted database snapshot and checksum generation.",
+        "details": "",
+        "action_taken": "Created snapshot avantus_backup_2026-10-28T08-40-09-734Z.json (4.99 KB). Integrity checksum: 2161677506629cbb64a744bbff50a84aa19d4efb412dcdd7312a9236c562015e",
+        "status": "Active",
+        "created_at": "2026-10-28T08:40:10.000Z"
+      },
+      {
+        "id": 6,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:41:33.000Z"
+      },
+      {
+        "id": 7,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:47:48.000Z"
+      },
+      {
+        "id": 8,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T13:01:42.000Z"
+      },
+      {
+        "id": 9,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T05:11:31.000Z"
+      },
+      {
+        "id": 10,
+        "event_type": "MANUAL_BACKUP_TRIGGERED",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "127.0.0.1",
+        "detection_reason": "Administrator initiated encrypted database snapshot and checksum generation.",
+        "details": "",
+        "action_taken": "Created snapshot avantus_backup_2026-10-29T05-33-24-400Z.json (11.92 KB). Integrity checksum: 6324a75729ac448bc3660f79dbc940786f6489b6320ee6c11862ea13e01ed58c",
+        "status": "Active",
+        "created_at": "2026-10-29T05:33:24.000Z"
+      },
+      {
+        "id": 11,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T06:01:11.000Z"
+      },
+      {
+        "id": 12,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T06:03:16.000Z"
+      },
+      {
+        "id": 13,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T06:26:56.000Z"
+      },
+      {
+        "id": 14,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T06:44:00.000Z"
+      },
+      {
+        "id": 15,
+        "event_type": "MANUAL_BACKUP_TRIGGERED",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "127.0.0.1",
+        "detection_reason": "Administrator initiated encrypted database snapshot and checksum generation.",
+        "details": "",
+        "action_taken": "Created snapshot avantus_backup_2026-10-29T06-44-22-463Z.json (47.04 KB). Integrity checksum: 08707397aafd93c99747d84d5a772edd53b31d35975bab646ffa863e568e5876",
+        "status": "Active",
+        "created_at": "2026-10-29T06:44:22.000Z"
+      },
+      {
+        "id": 16,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T06:49:13.000Z"
+      },
+      {
+        "id": 17,
+        "event_type": "MANUAL_BACKUP_TRIGGERED",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "127.0.0.1",
+        "detection_reason": "Administrator initiated encrypted database snapshot and checksum generation.",
+        "details": "",
+        "action_taken": "Created snapshot avantus_backup_2026-10-29T06-49-14-597Z.json (52.96 KB). Integrity checksum: a857f2c0cf6c7635cdaa097f626ec685f7bfefcc32b9d22b4e848bebf145dc16",
+        "status": "Active",
+        "created_at": "2026-10-29T06:49:14.000Z"
+      },
+      {
+        "id": 18,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T06:50:37.000Z"
+      }
+    ],
+    "business_projects": [
+      {
+        "id": 1,
+        "title": "HRMS & Custom Business Management Suite",
+        "client_name": "Global Workforce Operations",
+        "budget": "$45,000",
+        "status": "In Progress",
+        "health": "On Track",
+        "milestones_json": "[\"Phase 1: Architecture - Completed\", \"Phase 2: Payroll Engine - Active\", \"Phase 3: Mobile Companion - Scheduled\"]",
+        "team_assigned": "Bilal (Technical Director)",
+        "created_at": "2026-10-28T08:21:44.000Z",
+        "updated_at": "2026-10-28T09:43:47.000Z"
+      },
+      {
+        "id": 2,
+        "title": "Caremon D2C Wellness Flagship",
+        "client_name": "Caremon Group UK",
+        "budget": "$28,000",
+        "status": "Completed",
+        "health": "Delivered",
+        "milestones_json": "[\"Theme 2.0 Engineering\", \"Conversion Architecture\", \"PDP Sub-second Loading\"]",
+        "team_assigned": "Maira (Design) & Muzamil (Operations Director)",
+        "created_at": "2026-10-28T08:21:44.000Z",
+        "updated_at": "2026-10-28T09:43:49.000Z"
+      },
+      {
+        "id": 3,
+        "title": "Oasis Global Consulting Digital Presence",
+        "client_name": "Oasis Global Consulting (Pvt.) Ltd.",
+        "budget": "$22,000",
+        "status": "Completed",
+        "health": "Delivered",
+        "milestones_json": "[\"Corporate Architecture\", \"Regulatory Trust Signals\", \"Encrypted Intake\"]",
+        "team_assigned": "Bilal & CEO Office",
+        "created_at": "2026-10-28T08:21:44.000Z",
+        "updated_at": "2026-10-28T09:43:49.000Z"
+      }
+    ],
+    "crm_clients": [
+      {
+        "id": 1,
+        "company_name": "Caremon Wellness Ltd",
+        "contact_name": "Marcus Thorne",
+        "email": "m.thorne@caremon.co.uk",
+        "phone": "+44 20 7946 0912",
+        "address": null,
+        "country": "United Kingdom",
+        "website": "caremon.co.uk",
+        "status": "Active",
+        "account_manager": "Usman Farooq",
+        "notes": "Shopify 2.0 theme engineering and conversion optimization contract.",
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 2,
+        "company_name": "FAMA Luxury Goods",
+        "contact_name": "Fatima Al-Mansoor",
+        "email": "contact@famaleather.ae",
+        "phone": "+971 4 312 8890",
+        "address": null,
+        "country": "United Arab Emirates",
+        "website": "famaleather.ae",
+        "status": "Active",
+        "account_manager": "Usman Farooq",
+        "notes": "Multi-currency direct-to-consumer digital flagship deployment.",
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 3,
+        "company_name": "Dexlo Systems International",
+        "contact_name": "David Evans",
+        "email": "d.evans@dexlosystems.com",
+        "phone": "+1 415 555 0198",
+        "address": null,
+        "country": "United States",
+        "website": "dexlosystems.com",
+        "status": "Active",
+        "account_manager": "Hamza Tariq",
+        "notes": "Modular block architecture and corporate cloud presence.",
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      }
+    ],
+    "finance_invoices": [
+      {
+        "id": 1,
+        "invoice_number": "INV-TEST-3489",
+        "client_id": null,
+        "client_name": "Caremon Wellness Ltd",
+        "client_email": "billing@caremon.co.uk",
+        "project_id": null,
+        "issue_date": "2025-10-28T19:00:00.000Z",
+        "due_date": "2025-11-11T19:00:00.000Z",
+        "currency": "USD",
+        "subtotal": "3500.00",
+        "tax_rate": "10.00",
+        "tax_amount": "350.00",
+        "total_amount": "3850.00",
+        "balance_due": "3850.00",
+        "status": "Sent",
+        "notes": "",
+        "line_items_json": "[{\"description\":\"Sprint 1 Architecture\",\"quantity\":2,\"unit_price\":1500,\"total\":3000},{\"description\":\"Cloud Infrastructure Setup\",\"quantity\":1,\"unit_price\":500,\"total\":500}]",
+        "created_at": "2026-10-29T06:44:03.000Z",
+        "updated_at": "2026-10-29T06:44:03.000Z"
+      },
+      {
+        "id": 2,
+        "invoice_number": "INV-TEST-3826",
+        "client_id": null,
+        "client_name": "Caremon Wellness Ltd",
+        "client_email": "billing@caremon.co.uk",
+        "project_id": null,
+        "issue_date": "2025-10-28T19:00:00.000Z",
+        "due_date": "2025-11-11T19:00:00.000Z",
+        "currency": "USD",
+        "subtotal": "3500.00",
+        "tax_rate": "10.00",
+        "tax_amount": "350.00",
+        "total_amount": "3850.00",
+        "balance_due": "3850.00",
+        "status": "Sent",
+        "notes": "",
+        "line_items_json": "[{\"description\":\"Sprint 1 Architecture\",\"quantity\":2,\"unit_price\":1500,\"total\":3000},{\"description\":\"Cloud Infrastructure Setup\",\"quantity\":1,\"unit_price\":500,\"total\":500}]",
+        "created_at": "2026-10-29T06:49:13.000Z",
+        "updated_at": "2026-10-29T06:49:13.000Z"
+      },
+      {
+        "id": 3,
+        "invoice_number": "INV-TEST-7658",
+        "client_id": null,
+        "client_name": "Caremon Wellness Ltd",
+        "client_email": "billing@caremon.co.uk",
+        "project_id": null,
+        "issue_date": "2025-10-28T19:00:00.000Z",
+        "due_date": "2025-11-11T19:00:00.000Z",
+        "currency": "USD",
+        "subtotal": "3500.00",
+        "tax_rate": "10.00",
+        "tax_amount": "350.00",
+        "total_amount": "3850.00",
+        "balance_due": "3850.00",
+        "status": "Sent",
+        "notes": "",
+        "line_items_json": "[{\"description\":\"Sprint 1 Architecture\",\"quantity\":2,\"unit_price\":1500,\"total\":3000},{\"description\":\"Cloud Infrastructure Setup\",\"quantity\":1,\"unit_price\":500,\"total\":500}]",
+        "created_at": "2026-10-29T06:50:37.000Z",
+        "updated_at": "2026-10-29T06:50:37.000Z"
+      }
+    ],
+    "finance_expenses": [],
+    "finance_payments": [],
+    "hrms_employees": [
+      {
+        "id": 1,
+        "employee_code": "AF-001",
+        "full_name": "Laiba Baig",
+        "email": "laiba@avantusforge.com",
+        "phone": "+92 327 4074472",
+        "department": "Executive Leadership",
+        "designation": "Chief Executive Officer",
+        "date_of_joining": "2023-01-14T19:00:00.000Z",
+        "employment_type": "Full-time",
+        "status": "Active",
+        "base_salary": "350000.00",
+        "currency": "PKR",
+        "emergency_contact": null,
+        "bank_details_json": null,
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 2,
+        "employee_code": "AF-002",
+        "full_name": "Bilal",
+        "email": "bilal@avantusforge.com",
+        "phone": "+92 300 1234567",
+        "department": "Engineering",
+        "designation": "Technical Director",
+        "date_of_joining": "2023-02-28T19:00:00.000Z",
+        "employment_type": "Full-time",
+        "status": "Active",
+        "base_salary": "280000.00",
+        "currency": "PKR",
+        "emergency_contact": null,
+        "bank_details_json": null,
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 3,
+        "employee_code": "AF-003",
+        "full_name": "Muzamil",
+        "email": "muzamil@avantusforge.com",
+        "phone": "+92 301 2345678",
+        "department": "Operations",
+        "designation": "Operations Director",
+        "date_of_joining": "2023-04-09T19:00:00.000Z",
+        "employment_type": "Full-time",
+        "status": "Active",
+        "base_salary": "250000.00",
+        "currency": "PKR",
+        "emergency_contact": null,
+        "bank_details_json": null,
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 4,
+        "employee_code": "AF-004",
+        "full_name": "Maira",
+        "email": "maira@avantusforge.com",
+        "phone": "+92 302 3456789",
+        "department": "Design & Creative",
+        "designation": "Lead Graphic Designer",
+        "date_of_joining": "2023-05-31T19:00:00.000Z",
+        "employment_type": "Full-time",
+        "status": "Active",
+        "base_salary": "180000.00",
+        "currency": "PKR",
+        "emergency_contact": null,
+        "bank_details_json": null,
+        "created_at": "2026-10-29T06:15:18.000Z",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      }
+    ],
+    "hrms_attendance": [
+      {
+        "id": 1,
+        "employee_id": 1,
+        "date": "2026-10-28T19:00:00.000Z",
+        "check_in": "09:00:00",
+        "check_out": "18:00:00",
+        "status": "Present",
+        "notes": null,
+        "created_at": "2026-10-29T06:44:39.000Z"
+      },
+      {
+        "id": 2,
+        "employee_id": 2,
+        "date": "2026-10-28T19:00:00.000Z",
+        "check_in": "09:00:00",
+        "check_out": "18:00:00",
+        "status": "Late",
+        "notes": null,
+        "created_at": "2026-10-29T06:44:42.000Z"
+      },
+      {
+        "id": 3,
+        "employee_id": 3,
+        "date": "2026-10-28T19:00:00.000Z",
+        "check_in": "09:00:00",
+        "check_out": "18:00:00",
+        "status": "Late",
+        "notes": null,
+        "created_at": "2026-10-29T06:44:43.000Z"
+      },
+      {
+        "id": 4,
+        "employee_id": 4,
+        "date": "2026-10-28T19:00:00.000Z",
+        "check_in": "09:00:00",
+        "check_out": "18:00:00",
+        "status": "Late",
+        "notes": null,
+        "created_at": "2026-10-29T06:44:44.000Z"
+      }
+    ],
+    "hrms_leave_requests": [],
+    "hrms_payroll_runs": [
+      {
+        "id": 1,
+        "month_year": "October 2025",
+        "period_start": "2025-09-30T19:00:00.000Z",
+        "period_end": "2025-10-30T19:00:00.000Z",
+        "total_gross": "1060000.00",
+        "total_deductions": "0.00",
+        "total_net": "1060000.00",
+        "currency": "PKR",
+        "status": "Approved",
+        "approved_by": "admin",
+        "payment_date": null,
+        "notes": "Official monthly compensation cycle for staff.",
+        "created_at": "2026-10-29T06:44:57.000Z"
+      }
+    ],
+    "hrms_payslips": [
+      {
+        "id": 1,
+        "payroll_run_id": 1,
+        "employee_id": 1,
+        "base_salary": "350000.00",
+        "allowances_json": null,
+        "deductions_json": null,
+        "gross_amount": "350000.00",
+        "net_amount": "350000.00",
+        "payment_method": "Direct Bank Deposit",
+        "status": "Generated",
+        "created_at": "2026-10-29T06:44:57.000Z"
+      },
+      {
+        "id": 2,
+        "payroll_run_id": 1,
+        "employee_id": 2,
+        "base_salary": "280000.00",
+        "allowances_json": null,
+        "deductions_json": null,
+        "gross_amount": "280000.00",
+        "net_amount": "280000.00",
+        "payment_method": "Direct Bank Deposit",
+        "status": "Generated",
+        "created_at": "2026-10-29T06:44:58.000Z"
+      },
+      {
+        "id": 3,
+        "payroll_run_id": 1,
+        "employee_id": 3,
+        "base_salary": "250000.00",
+        "allowances_json": null,
+        "deductions_json": null,
+        "gross_amount": "250000.00",
+        "net_amount": "250000.00",
+        "payment_method": "Direct Bank Deposit",
+        "status": "Generated",
+        "created_at": "2026-10-29T06:44:58.000Z"
+      },
+      {
+        "id": 4,
+        "payroll_run_id": 1,
+        "employee_id": 4,
+        "base_salary": "180000.00",
+        "allowances_json": null,
+        "deductions_json": null,
+        "gross_amount": "180000.00",
+        "net_amount": "180000.00",
+        "payment_method": "Direct Bank Deposit",
+        "status": "Generated",
+        "created_at": "2026-10-29T06:44:58.000Z"
+      }
+    ],
+    "system_integrations": [
+      {
+        "id": 1,
+        "service_key": "ga4",
+        "service_name": "Google Analytics 4",
+        "is_enabled": 1,
+        "config_json": "{\"measurement_id\": \"G-XXXXXXXXXX\"}",
+        "last_tested_at": null,
+        "test_status": "Configured",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 2,
+        "service_key": "smtp",
+        "service_name": "Enterprise SMTP Gateway",
+        "is_enabled": 1,
+        "config_json": "{\"host\": \"smtp.avantusforge.com\", \"port\": 587, \"user\": \"noreply@avantusforge.com\"}",
+        "last_tested_at": null,
+        "test_status": "Verified",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 3,
+        "service_key": "search_console",
+        "service_name": "Google Search Console",
+        "is_enabled": 1,
+        "config_json": "{\"site_url\": \"https://avantusforge.com\"}",
+        "last_tested_at": null,
+        "test_status": "Verified",
+        "updated_at": "2026-10-29T06:15:18.000Z"
+      },
+      {
+        "id": 4,
+        "service_key": "storage",
+        "service_name": "Secure Encrypted Media Storage",
+        "is_enabled": 1,
+        "config_json": "{\"provider\": \"local_encrypted\", \"base_dir\": \"public/uploads\"}",
+        "last_tested_at": "2026-10-29T06:50:37.000Z",
+        "test_status": "Verified",
+        "updated_at": "2026-10-29T06:50:37.000Z"
+      }
+    ]
+  }
+}

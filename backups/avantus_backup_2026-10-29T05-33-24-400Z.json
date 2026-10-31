@@ -1,0 +1,273 @@
+{
+  "metadata": {
+    "timestamp": "2026-10-29T05:33:24.400Z",
+    "version": "1.0",
+    "environment": "development",
+    "generator": "AvantusForge Automated Disaster Recovery Engine"
+  },
+  "tables": {
+    "contact_inquiries": [
+      {
+        "id": 1,
+        "name": "Marcus Vance",
+        "email": "marcus.vance@vancetech.co.uk",
+        "phone": "+44 20 7946 0912",
+        "company": "Vance Technologies UK",
+        "service": "Custom Software Development",
+        "budget": "£25k - £50k",
+        "message": "We are looking for bespoke portal development to automate warehouse logistics and stock dispatch.",
+        "status": "New",
+        "priority": "High",
+        "lead_source": "Website Form",
+        "assigned_to": "Unassigned",
+        "internal_notes": null,
+        "follow_up_date": null,
+        "created_at": "2026-10-27T12:29:05.000Z",
+        "updated_at": "2026-10-27T12:29:05.000Z"
+      }
+    ],
+    "cms_team_members": [
+      {
+        "id": 1,
+        "name": "Laiba Baig",
+        "title": "CEO Laiba Baig",
+        "role": "Chief Executive Officer",
+        "bio": "Founder and Chief Executive Officer guiding strategic direction, enterprise technology solutions, and global marketplace expansion for AvantusForge.",
+        "image_url": "/team/laiba-baig-ceo.jpg",
+        "order_index": 1,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:00:13.000Z"
+      },
+      {
+        "id": 2,
+        "name": "Maira",
+        "title": "Maira",
+        "role": "Graphic Designer",
+        "bio": "Directing brand identity systems, conversion-driven visual design, storefront graphics, and premium digital marketing assets.",
+        "image_url": "/team/maira.jpg",
+        "order_index": 2,
+        "is_active": 1,
+        "updated_at": "2026-10-27T12:41:03.000Z"
+      },
+      {
+        "id": 3,
+        "name": "Bilal",
+        "title": "Bilal",
+        "role": "Technical Director",
+        "bio": "Leading bespoke system architecture, custom ERP/CRM engineering, and high-performance cloud applications.",
+        "image_url": "/team/tech-lead.jpg",
+        "order_index": 3,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:52:03.000Z"
+      },
+      {
+        "id": 4,
+        "name": "Muzamil",
+        "title": "Muzamil",
+        "role": "Operations Director",
+        "bio": "Overseeing client digital delivery, e-commerce growth strategies, and international market development.",
+        "image_url": "/team/ops-lead.jpg",
+        "order_index": 4,
+        "is_active": 1,
+        "updated_at": "2026-10-28T08:52:03.000Z"
+      }
+    ],
+    "admin_users": [
+      {
+        "id": 1,
+        "username": "admin",
+        "email": "admin@avantusforge.com",
+        "password_hash": "e719e7fe18988cce3118f4259451b89a4085ae21271e72651521850e1005651cb0cb6973cb194c8b42692ec8808f5863f51e9c8e84edbd8b6be9b3a5e1f78c08",
+        "salt": "574d7ccbfc5b80991f3fc855ff42ee73",
+        "role": "super_admin",
+        "full_name": "Executive Super Administrator",
+        "mfa_enabled": 0,
+        "mfa_secret": null,
+        "failed_attempts": 0,
+        "locked_until": null,
+        "last_login": "2026-10-29T05:11:31.000Z",
+        "created_at": "2026-10-28T08:17:04.000Z",
+        "updated_at": "2026-10-29T05:11:31.000Z"
+      }
+    ],
+    "cms_pages": [
+      {
+        "id": 1,
+        "slug": "home",
+        "title": "Home",
+        "seo_title": "AvantusForge | Custom Software, E-Commerce & Digital Systems",
+        "meta_description": "International technology and software engineering studio. We build bespoke software platforms, high-converting digital storefronts, and automated business workflows.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Hero Section\",\"enabled\":true,\"eyebrow\":\"CUSTOM SOFTWARE • WEB • DIGITAL SOLUTIONS\",\"headline\":\"Forging Digital Solutions That Move Your Business Forward.\"},{\"id\":\"trust_strip\",\"name\":\"Trust & Market Credibility Strip\",\"enabled\":true},{\"id\":\"business_problems\",\"name\":\"Business Problem & Solution\",\"enabled\":true},{\"id\":\"services\",\"name\":\"Interactive Services Showcase\",\"enabled\":true},{\"id\":\"editorial_story\",\"name\":\"Editorial Story & CEO Vision\",\"enabled\":true},{\"id\":\"tech_stack\",\"name\":\"Modern Technology Stack\",\"enabled\":true},{\"id\":\"stats\",\"name\":\"Commercial Statistics\",\"enabled\":true},{\"id\":\"process\",\"name\":\"Numbered 4-Step Process\",\"enabled\":true},{\"id\":\"selected_work\",\"name\":\"Selected Work Highlights\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Bottom Call to Action Banner\",\"enabled\":true},{\"id\":\"faq\",\"name\":\"Frequently Asked Questions\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 2,
+        "slug": "about",
+        "title": "About Us",
+        "seo_title": "About AvantusForge | Technology Meets Business Growth",
+        "meta_description": "AvantusForge is an international digital consultancy and engineering studio helping businesses automate, build, and scale operations.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"About Hero Section\",\"enabled\":true},{\"id\":\"leadership\",\"name\":\"Executive Leadership & CEO Vision\",\"enabled\":true},{\"id\":\"approach\",\"name\":\"Our Engineering Approach\",\"enabled\":true},{\"id\":\"beliefs\",\"name\":\"Core Convictions & Beliefs\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 3,
+        "slug": "services",
+        "title": "Services",
+        "seo_title": "Our Services | Custom Software, E-Commerce & Cloud Systems",
+        "meta_description": "Explore AvantusForge's full suite of enterprise digital engineering, custom software, Shopify development, and automation services.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Services Hero\",\"enabled\":true},{\"id\":\"services_grid\",\"name\":\"All Services Grid\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 4,
+        "slug": "work",
+        "title": "Portfolio & Work",
+        "seo_title": "Portfolio & Case Studies | AvantusForge Digital Agency",
+        "meta_description": "Real delivered systems, verified e-commerce growth, and bespoke software built by AvantusForge.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Work Hero\",\"enabled\":true},{\"id\":\"split_gallery\",\"name\":\"Split Section Project Cards (Design 4)\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 5,
+        "slug": "team",
+        "title": "Leadership & Team",
+        "seo_title": "Our Leadership & Team | AvantusForge Digital Agency",
+        "meta_description": "Meet the executive, technical, and operational leadership behind AvantusForge. Led by CEO Laiba Baig.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Team Hero\",\"enabled\":true},{\"id\":\"members_grid\",\"name\":\"Executive Leadership Grid\",\"enabled\":true},{\"id\":\"cta\",\"name\":\"Call to Action\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      },
+      {
+        "id": 6,
+        "slug": "contact",
+        "title": "Contact Us",
+        "seo_title": "Contact AvantusForge | Start Your Project Today",
+        "meta_description": "Get in touch with our executive leadership and software engineering team for custom software, web platforms, and digital growth.",
+        "og_image": null,
+        "status": "published",
+        "sections_json": "[{\"id\":\"hero\",\"name\":\"Contact Hero & Direct Channels\",\"enabled\":true},{\"id\":\"form\",\"name\":\"Intake & Project Inquiry Form\",\"enabled\":true}]",
+        "updated_at": "2026-10-28T12:27:06.000Z"
+      }
+    ],
+    "cms_settings": [],
+    "security_events": [
+      {
+        "id": 1,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:17:05.000Z"
+      },
+      {
+        "id": 2,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:38:10.000Z"
+      },
+      {
+        "id": 3,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:38:11.000Z"
+      },
+      {
+        "id": 4,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:39:48.000Z"
+      },
+      {
+        "id": 5,
+        "event_type": "MANUAL_BACKUP_TRIGGERED",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "127.0.0.1",
+        "detection_reason": "Administrator initiated encrypted database snapshot and checksum generation.",
+        "details": "",
+        "action_taken": "Created snapshot avantus_backup_2026-10-28T08-40-09-734Z.json (4.99 KB). Integrity checksum: 2161677506629cbb64a744bbff50a84aa19d4efb412dcdd7312a9236c562015e",
+        "status": "Active",
+        "created_at": "2026-10-28T08:40:10.000Z"
+      },
+      {
+        "id": 6,
+        "event_type": "LOGIN_FAILED",
+        "severity": "WARN",
+        "actor": "laibazafar131@gmail.com",
+        "source_ip": "::1",
+        "detection_reason": "Login attempt with non-existent administrative username or email.",
+        "details": "",
+        "action_taken": "Generic error returned.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:41:33.000Z"
+      },
+      {
+        "id": 7,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T08:47:48.000Z"
+      },
+      {
+        "id": 8,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-28T13:01:42.000Z"
+      },
+      {
+        "id": 9,
+        "event_type": "LOGIN_SUCCESS",
+        "severity": "INFO",
+        "actor": "admin",
+        "source_ip": "::1",
+        "detection_reason": "Successful authentication into administration console.",
+        "details": "",
+        "action_taken": "Issued 24-hour HttpOnly secure session cookie.",
+        "status": "Active",
+        "created_at": "2026-10-29T05:11:31.000Z"
+      }
+    ]
+  }
+}
