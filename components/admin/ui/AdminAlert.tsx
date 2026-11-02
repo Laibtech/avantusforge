@@ -3,21 +3,27 @@ import { CheckCircle2, AlertTriangle, AlertCircle, Info, X } from "lucide-react"
 
 export interface AdminAlertProps {
   type?: "success" | "warning" | "error" | "info";
+  variant?: "success" | "warning" | "error" | "info";
   title?: string;
   message?: React.ReactNode;
   onDismiss?: () => void;
+  onClose?: () => void;
   className?: string;
   children?: React.ReactNode;
 }
 
 export default function AdminAlert({
-  type = "info",
+  type,
+  variant,
   title,
   message,
   onDismiss,
+  onClose,
   className = "",
   children,
 }: AdminAlertProps) {
+  const alertType = variant || type || "info";
+  const handleDismiss = onClose || onDismiss;
   const configs = {
     success: {
       bg: "bg-emerald-50/90 border-emerald-200 text-emerald-900",
@@ -41,7 +47,7 @@ export default function AdminAlert({
     },
   };
 
-  const config = configs[type];
+  const config = configs[alertType];
   const Icon = config.icon;
 
   return (
@@ -58,10 +64,10 @@ export default function AdminAlert({
         </div>
       </div>
 
-      {onDismiss && (
+      {handleDismiss && (
         <button
           type="button"
-          onClick={onDismiss}
+          onClick={handleDismiss}
           className="text-[#777078] hover:text-[#24151B] p-1 rounded-md transition-colors"
           aria-label="Dismiss Alert"
         >

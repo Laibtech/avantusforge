@@ -30,7 +30,7 @@ interface IntegrationItem {
   service_key: string;
   service_name: string;
   is_enabled: boolean;
-  config: Record<string, any>;
+  config: Record<string, string | number | boolean | null>;
   last_tested_at?: string;
   test_status: string;
   updated_at?: string;
@@ -38,7 +38,7 @@ interface IntegrationItem {
 
 const SERVICE_METADATA: Record<
   string,
-  { icon: any; category: string; description: string; fields: { key: string; label: string; type: string; placeholder: string }[] }
+  { icon: React.ElementType; category: string; description: string; fields: { key: string; label: string; type: string; placeholder: string }[] }
 > = {
   ga4: {
     icon: Activity,
@@ -103,8 +103,9 @@ export default function AdminIntegrationsPage() {
       if (data.success && data.integrations) {
         setIntegrations(data.integrations);
       }
-    } catch (err: any) {
-      setFeedback({ type: "error", text: "Failed to load integrations: " + err.message });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setFeedback({ type: "error", text: "Failed to load integrations: " + msg });
     } finally {
       setLoading(false);
     }
@@ -114,7 +115,7 @@ export default function AdminIntegrationsPage() {
     fetchIntegrations();
   }, []);
 
-  const handleConfigChange = (serviceKey: string, fieldKey: string, value: any) => {
+  const handleConfigChange = (serviceKey: string, fieldKey: string, value: string | number | boolean | null) => {
     setIntegrations((prev) =>
       prev.map((item) => {
         if (item.service_key === serviceKey) {

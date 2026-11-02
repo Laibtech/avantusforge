@@ -75,8 +75,9 @@ export async function POST(req: Request) {
       flag: geo.flag,
       city: geo.city,
     });
-  } catch (err: any) {
-    console.error("[Track API] Ingestion error:", err.message);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[Track API] Ingestion error:", msg);
     return NextResponse.json({ success: false, error: "Internal processing error" }, { status: 500 });
   }
 }

@@ -205,7 +205,7 @@ export default function AdminUsersPage() {
           <AdminButton
             variant="primary"
             size="sm"
-            icon={<Plus />}
+            icon={Plus}
             onClick={handleOpenCreate}
           >
             Add Admin User
@@ -382,11 +382,10 @@ export default function AdminUsersPage() {
                   value={editingUser.username || ""}
                   onChange={(e) => setEditingUser({ ...editingUser, username: e.target.value })}
                   placeholder="e.g. bilal.khan"
-                  className={`w-full p-2.5 border border-[#EADFE3] rounded-lg text-xs font-mono transition-colors ${
-                    editingUser.id
-                      ? "bg-neutral-100 text-[#777078] cursor-not-allowed"
-                      : "bg-[#FAF7F7] text-[#24151B] focus:outline-none focus:border-[#74102E] focus:bg-white"
-                  }`}
+                  className={`w-full p-2.5 border border-[#EADFE3] rounded-lg text-xs font-mono transition-colors ${editingUser.id
+                    ? "bg-neutral-100 text-[#777078] cursor-not-allowed"
+                    : "bg-[#FAF7F7] text-[#24151B] focus:outline-none focus:border-[#74102E] focus:bg-white"
+                    }`}
                 />
               </div>
 

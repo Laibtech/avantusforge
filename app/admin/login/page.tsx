@@ -47,7 +47,7 @@ export default function AdminLoginPage() {
         {/* Brand Header */}
         <div className="bg-[#4A0B20] p-8 text-center text-[#FAF7F7] relative overflow-hidden">
           <div className="absolute top-0 right-0 w-48 h-48 bg-radial from-white/10 to-transparent pointer-events-none rounded-full -mr-16 -mt-16" />
-          
+
           <div className="relative z-1 flex flex-col items-center">
             <Image
               src="/logo.png"

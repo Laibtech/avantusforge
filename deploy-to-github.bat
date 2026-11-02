@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 echo =======================================================
-echo   AvantusForge - GitHub One-Click Deployment Script
+echo   AvantusForge - GitHub Deployment Script
 echo   Target: https://github.com/Laibtech/avantusforge
 echo =======================================================
 echo.
@@ -17,22 +17,20 @@ if %ERRORLEVEL% neq 0 (
     exit /b 1
 )
 
-echo [1/5] Checking Git repository initialization...
+echo [1/5] Checking Git repository...
 if not exist ".git" (
     echo [*] Initializing new Git repository...
     git init
-    git branch -M main
-) else (
-    echo [*] Existing Git repository detected.
 )
+git branch -M main
 
 echo.
-echo [2/5] Staging all files...
+echo [2/5] Staging all changes...
 git add -A
 
 echo.
 echo [3/5] Committing changes...
-git commit -m "AvantusForge Enterprise Platform: Full CMS Redesign, Team Integration, and Real-Time Live Visitor Tracking"
+git commit -m "AvantusForge: Real-Time Live Visitor Tracking, CMS Type Fixes, and CI Workflow" 2>nul || echo [*] Working tree clean or already committed.
 
 echo.
 echo [4/5] Configuring GitHub remote origin...
@@ -40,7 +38,7 @@ set "REPO_URL=https://github.com/Laibtech/avantusforge.git"
 
 git remote get-url origin >nul 2>&1
 if %ERRORLEVEL% equ 0 (
-    echo [*] Updating existing remote origin to !REPO_URL!...
+    echo [*] Updating remote origin to !REPO_URL!...
     git remote set-url origin !REPO_URL!
 ) else (
     echo [*] Adding remote origin !REPO_URL!...
@@ -49,22 +47,19 @@ if %ERRORLEVEL% equ 0 (
 
 echo.
 echo [5/5] Pushing to GitHub (main branch)...
-echo If prompted, enter your GitHub credentials or Personal Access Token (PAT).
 git push -u origin main
 
 if %ERRORLEVEL% equ 0 (
     echo.
     echo =======================================================
-    echo   SUCCESS! Deployed to https://github.com/Laibtech/avantusforge
+    echo   SUCCESS! Pushed to https://github.com/Laibtech/avantusforge
     echo =======================================================
 ) else (
     echo.
-    echo [!] Note: If the repository doesn't exist yet on GitHub:
-    echo 1. Go to https://github.com/new
-    echo 2. Create a repository named: avantusforge
-    echo 3. Run this script again!
+    echo [*] Standard push encountered a sync conflict. Pulling latest and pushing...
+    git pull --rebase origin main
+    git push -u origin main
 )
 
 echo.
 pause
-

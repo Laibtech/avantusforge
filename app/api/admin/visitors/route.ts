@@ -34,7 +34,7 @@ export async function GET(req: Request) {
 
       // Strip raw IP if not authorized
       if (!includeRawIp && data.session) {
-        delete (data.session as any).ip_address;
+        delete (data.session as { ip_address?: string }).ip_address;
       }
 
       return NextResponse.json({
@@ -42,8 +42,9 @@ export async function GET(req: Request) {
         session: data.session,
         timeline: data.timeline,
       });
-    } catch (err: any) {
-      return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      return NextResponse.json({ success: false, message: msg }, { status: 500 });
     }
   }
 
@@ -65,8 +66,9 @@ export async function GET(req: Request) {
           "Content-Disposition": `attachment; filename="avantusforge-visitors-${new Date().toISOString().slice(0, 10)}.csv"`,
         },
       });
-    } catch (err: any) {
-      return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      return NextResponse.json({ success: false, message: msg }, { status: 500 });
     }
   }
 
@@ -84,9 +86,10 @@ export async function GET(req: Request) {
       canViewRawIp: isSuperAdmin,
       ...data,
     });
-  } catch (err: any) {
-    console.error("[Visitors API] Error loading telemetry:", err);
-    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[Visitors API] Error loading telemetry:", msg);
+    return NextResponse.json({ success: false, message: msg }, { status: 500 });
   }
 }
 
@@ -125,7 +128,8 @@ export async function POST(req: Request) {
       message: `Cleaned up records older than ${retentionDays} days.`,
       ...result,
     });
-  } catch (err: any) {
-    return NextResponse.json({ success: false, message: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ success: false, message: msg }, { status: 500 });
   }
 }

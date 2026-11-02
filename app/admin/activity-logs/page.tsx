@@ -6,11 +6,6 @@ import {
   Search,
   Download,
   User,
-  Clock,
-  Shield,
-  Layers,
-  FileText,
-  Activity,
 } from "lucide-react";
 import {
   AdminPageHeader,
@@ -134,11 +129,10 @@ export default function AdminActivityLogsPage() {
               key={ent}
               type="button"
               onClick={() => setSelectedEntity(ent)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
-                selectedEntity === ent
-                  ? "bg-[#74102E] text-white shadow-xs"
-                  : "bg-white border border-[#EADFE3] text-[#777078] hover:text-[#24151B] hover:bg-[#FAF7F7]"
-              }`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${selectedEntity === ent
+                ? "bg-[#74102E] text-white shadow-xs"
+                : "bg-white border border-[#EADFE3] text-[#777078] hover:text-[#24151B] hover:bg-[#FAF7F7]"
+                }`}
             >
               {ent}
             </button>
@@ -155,7 +149,7 @@ export default function AdminActivityLogsPage() {
         ) : logs.length === 0 ? (
           <div className="py-16">
             <AdminEmptyState
-              icon={<History className="w-8 h-8 text-[#74102E]/40" />}
+              icon={History}
               title="No activity records found"
               description="No administrative events match your selected filters. Actions performed across CMS modules will be captured here."
             />

@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  BarChart3,
   TrendingUp,
   Users,
   Eye,
@@ -10,10 +9,6 @@ import {
   Globe,
   Smartphone,
   Download,
-  Calendar,
-  Layers,
-  ArrowUpRight,
-  Filter,
   RefreshCw,
 } from "lucide-react";
 import {

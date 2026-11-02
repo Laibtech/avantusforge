@@ -8,6 +8,7 @@ export interface AdminCardProps {
   actions?: React.ReactNode;
   footer?: React.ReactNode;
   padding?: "none" | "sm" | "md" | "lg";
+  noPadding?: boolean;
   className?: string;
   children: React.ReactNode;
 }
@@ -20,9 +21,11 @@ export default function AdminCard({
   actions,
   footer,
   padding = "md",
+  noPadding,
   className = "",
   children,
 }: AdminCardProps) {
+  const effectivePadding = noPadding ? "none" : padding;
   const paddingClasses = {
     none: "",
     sm: "p-4 sm:p-5",
@@ -63,7 +66,7 @@ export default function AdminCard({
         </div>
       )}
 
-      <div className={paddingClasses[padding]}>{children}</div>
+      <div className={paddingClasses[effectivePadding]}>{children}</div>
 
       {footer && (
         <div className="px-5 sm:px-6 py-3.5 border-t border-[#EADFE3]/70 bg-[#FAF7F7] text-xs text-[#777078]">

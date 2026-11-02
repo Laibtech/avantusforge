@@ -431,11 +431,10 @@ export default function AdminHRMSPage() {
         <button
           type="button"
           onClick={() => setActiveTab("directory")}
-          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${
-            activeTab === "directory"
-              ? "border-[#74102E] text-[#74102E]"
-              : "border-transparent text-[#777078] hover:text-[#24151B]"
-          }`}
+          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${activeTab === "directory"
+            ? "border-[#74102E] text-[#74102E]"
+            : "border-transparent text-[#777078] hover:text-[#24151B]"
+            }`}
         >
           <Users className="w-3.5 h-3.5" />
           <span>Staff Directory ({employees.length})</span>
@@ -444,11 +443,10 @@ export default function AdminHRMSPage() {
         <button
           type="button"
           onClick={() => setActiveTab("attendance")}
-          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${
-            activeTab === "attendance"
-              ? "border-[#74102E] text-[#74102E]"
-              : "border-transparent text-[#777078] hover:text-[#24151B]"
-          }`}
+          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${activeTab === "attendance"
+            ? "border-[#74102E] text-[#74102E]"
+            : "border-transparent text-[#777078] hover:text-[#24151B]"
+            }`}
         >
           <Clock className="w-3.5 h-3.5" />
           <span>Daily Attendance</span>
@@ -457,11 +455,10 @@ export default function AdminHRMSPage() {
         <button
           type="button"
           onClick={() => setActiveTab("leaves")}
-          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${
-            activeTab === "leaves"
-              ? "border-[#74102E] text-[#74102E]"
-              : "border-transparent text-[#777078] hover:text-[#24151B]"
-          }`}
+          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${activeTab === "leaves"
+            ? "border-[#74102E] text-[#74102E]"
+            : "border-transparent text-[#777078] hover:text-[#24151B]"
+            }`}
         >
           <Calendar className="w-3.5 h-3.5" />
           <span>Leave Requests ({leaves.length})</span>
@@ -470,11 +467,10 @@ export default function AdminHRMSPage() {
         <button
           type="button"
           onClick={() => setActiveTab("payroll")}
-          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${
-            activeTab === "payroll"
-              ? "border-[#74102E] text-[#74102E]"
-              : "border-transparent text-[#777078] hover:text-[#24151B]"
-          }`}
+          className={`pb-2.5 text-xs font-bold transition-colors cursor-pointer border-b-2 flex items-center gap-1.5 ${activeTab === "payroll"
+            ? "border-[#74102E] text-[#74102E]"
+            : "border-transparent text-[#777078] hover:text-[#24151B]"
+            }`}
         >
           <DollarSign className="w-3.5 h-3.5" />
           <span>Payroll Runs & Payslips</span>
@@ -536,11 +532,10 @@ export default function AdminHRMSPage() {
                       </td>
                       <td className="py-3.5 px-4">
                         <span
-                          className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${
-                            emp.status === "Active"
-                              ? "bg-emerald-50 text-emerald-800 border-emerald-200"
-                              : "bg-gray-100 text-gray-700 border-gray-200"
-                          }`}
+                          className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${emp.status === "Active"
+                            ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                            : "bg-gray-100 text-gray-700 border-gray-200"
+                            }`}
                         >
                           {emp.status}
                         </span>
@@ -620,15 +615,14 @@ export default function AdminHRMSPage() {
                         </td>
                         <td className="py-3 px-4">
                           <span
-                            className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${
-                              currentStatus === "Present"
-                                ? "bg-emerald-50 text-emerald-800 border-emerald-200"
-                                : currentStatus === "Late"
+                            className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${currentStatus === "Present"
+                              ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                              : currentStatus === "Late"
                                 ? "bg-amber-50 text-amber-800 border-amber-200"
                                 : currentStatus === "Absent"
-                                ? "bg-rose-50 text-rose-800 border-rose-200"
-                                : "bg-gray-100 text-gray-600 border-gray-200"
-                            }`}
+                                  ? "bg-rose-50 text-rose-800 border-rose-200"
+                                  : "bg-gray-100 text-gray-600 border-gray-200"
+                              }`}
                           >
                             {currentStatus}
                           </span>
@@ -716,13 +710,12 @@ export default function AdminHRMSPage() {
                         <td className="py-3.5 px-4 text-[#4D4245] max-w-xs truncate">{l.reason}</td>
                         <td className="py-3.5 px-4">
                           <span
-                            className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${
-                              l.status === "Approved"
-                                ? "bg-emerald-50 text-emerald-800 border-emerald-200"
-                                : l.status === "Pending"
+                            className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${l.status === "Approved"
+                              ? "bg-emerald-50 text-emerald-800 border-emerald-200"
+                              : l.status === "Pending"
                                 ? "bg-amber-50 text-amber-800 border-amber-200"
                                 : "bg-rose-50 text-rose-800 border-rose-200"
-                            }`}
+                              }`}
                           >
                             {l.status}
                           </span>

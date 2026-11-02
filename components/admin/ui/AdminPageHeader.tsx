@@ -16,6 +16,7 @@ export interface AdminPageHeaderProps {
   breadcrumbs?: BreadcrumbItem[];
   backHref?: string;
   backLabel?: string;
+  actions?: React.ReactNode;
   children?: React.ReactNode; // Actions slot (buttons, search, export)
 }
 
@@ -28,6 +29,7 @@ export default function AdminPageHeader({
   breadcrumbs,
   backHref,
   backLabel = "Back",
+  actions,
   children,
 }: AdminPageHeaderProps) {
   const badgeClasses = {
@@ -103,8 +105,9 @@ export default function AdminPageHeader({
           )}
         </div>
 
-        {children && (
+        {(actions || children) && (
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0">
+            {actions}
             {children}
           </div>
         )}

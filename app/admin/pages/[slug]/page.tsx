@@ -82,8 +82,15 @@ export default function AdminPageDetailEditor({ params }: PageProps) {
   } | null>(null);
 
   // Revisions Drawer State
+  interface PageRevision {
+    id: number;
+    status: string;
+    title: string;
+    created_at: string;
+    created_by: string;
+  }
   const [revisionsDrawerOpen, setRevisionsDrawerOpen] = useState(false);
-  const [revisions, setRevisions] = useState<any[]>([]);
+  const [revisions, setRevisions] = useState<PageRevision[]>([]);
   const [loadingRevisions, setLoadingRevisions] = useState(false);
   const [restoringId, setRestoringId] = useState<number | null>(null);
 

@@ -54,7 +54,7 @@ const TEAM_MEMBERS = ["Unassigned", "Laiba Baig (CEO)", "Bilal (Tech Director)",
 
 export default function AdminLeadsPage() {
   const [leads, setLeads] = useState<LeadItem[]>([]);
-  const [subscribers, setSubscribers] = useState<any[]>([]);
+  const [subscribers, setSubscribers] = useState<{ id?: number; email: string; created_at?: string; status?: string }[]>([]);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<"inquiries" | "subscribers">("inquiries");
   const [search, setSearch] = useState("");

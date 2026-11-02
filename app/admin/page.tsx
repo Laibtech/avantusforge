@@ -56,8 +56,21 @@ interface AnalyticsData {
   devices: { device_type: string; count: number }[];
   referrers: { referrer: string; count: number }[];
   countries: { country: string; count: number }[];
-  recentInquiries: any[];
-  recentActivities: any[];
+  recentInquiries: {
+    id?: number;
+    name: string;
+    email: string;
+    service?: string;
+    status?: string;
+    created_at?: string;
+  }[];
+  recentActivities: {
+    id?: number;
+    actor: string;
+    action?: string;
+    details?: string;
+    created_at?: string;
+  }[];
 }
 
 export default function AdminDashboardPage() {
@@ -154,11 +167,10 @@ export default function AdminDashboardPage() {
                 key={days}
                 type="button"
                 onClick={() => setSelectedRange(days)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  selectedRange === days
-                    ? "bg-[#74102E] text-white shadow-2xs"
-                    : "text-[#777078] hover:text-[#24151B]"
-                }`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${selectedRange === days
+                  ? "bg-[#74102E] text-white shadow-2xs"
+                  : "text-[#777078] hover:text-[#24151B]"
+                  }`}
               >
                 {days}d
               </button>
@@ -288,11 +300,10 @@ export default function AdminDashboardPage() {
                 <button
                   type="button"
                   onClick={() => setChartMode("line")}
-                  className={`p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    chartMode === "line"
-                      ? "bg-[#74102E] text-white shadow-2xs"
-                      : "text-[#777078] hover:text-[#24151B]"
-                  }`}
+                  className={`p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${chartMode === "line"
+                    ? "bg-[#74102E] text-white shadow-2xs"
+                    : "text-[#777078] hover:text-[#24151B]"
+                    }`}
                   title="Line & Area Fill"
                 >
                   <LineChartIcon className="w-3.5 h-3.5" />
@@ -300,11 +311,10 @@ export default function AdminDashboardPage() {
                 <button
                   type="button"
                   onClick={() => setChartMode("bars")}
-                  className={`p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                    chartMode === "bars"
-                      ? "bg-[#74102E] text-white shadow-2xs"
-                      : "text-[#777078] hover:text-[#24151B]"
-                  }`}
+                  className={`p-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${chartMode === "bars"
+                    ? "bg-[#74102E] text-white shadow-2xs"
+                    : "text-[#777078] hover:text-[#24151B]"
+                    }`}
                   title="Bar Columns"
                 >
                   <BarChart2 className="w-3.5 h-3.5" />

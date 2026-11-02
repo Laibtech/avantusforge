@@ -79,8 +79,9 @@ export default function SecurityCenterPage() {
           setEvents(data.recentEvents);
         }
       }
-    } catch (err: any) {
-      setFeedbackMessage({ type: "error", text: "Failed to run live security scan: " + err.message });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setFeedbackMessage({ type: "error", text: "Failed to run live security scan: " + msg });
     } finally {
       setLoadingScan(false);
     }
@@ -114,8 +115,9 @@ export default function SecurityCenterPage() {
       } else {
         setFeedbackMessage({ type: "error", text: data.message || "Backup generation failed." });
       }
-    } catch (err: any) {
-      setFeedbackMessage({ type: "error", text: "Network error triggering backup: " + err.message });
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err);
+      setFeedbackMessage({ type: "error", text: "Network error triggering backup: " + msg });
     } finally {
       setLoadingBackup(false);
     }

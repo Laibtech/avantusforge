@@ -151,18 +151,16 @@ export default function AdminTestimonialsFaqPage() {
             <button
               type="button"
               onClick={() => setActiveTab("testimonials")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "testimonials" ? "bg-[#74102E] text-white shadow-2xs" : "text-[#777078] hover:text-[#24151B]"
-              }`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${activeTab === "testimonials" ? "bg-[#74102E] text-white shadow-2xs" : "text-[#777078] hover:text-[#24151B]"
+                }`}
             >
               Testimonials ({testimonials.length})
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("faqs")}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                activeTab === "faqs" ? "bg-[#74102E] text-white shadow-2xs" : "text-[#777078] hover:text-[#24151B]"
-              }`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${activeTab === "faqs" ? "bg-[#74102E] text-white shadow-2xs" : "text-[#777078] hover:text-[#24151B]"
+                }`}
             >
               FAQs ({faqs.length})
             </button>
