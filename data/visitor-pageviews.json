@@ -1,18 +1,1 @@
-[
-  {
-    "id": 1793432098335,
-    "session_id": "af_a9bg7t4vq_1793432096963",
-    "path": "/",
-    "referrer": "http://localhost:3000/admin/visitors",
-    "referrer_source": "Referral",
-    "device_type": "desktop",
-    "browser": "Chrome",
-    "os": "Windows",
-    "country": "Local Development",
-    "country_code": "LOC",
-    "city": "Localhost",
-    "masked_ip": "127.0.***.*** (Local)",
-    "duration_seconds": 0,
-    "created_at": "2026-10-31T07:34:57.195Z"
-  }
-]
+[]
